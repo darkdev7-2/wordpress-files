@@ -1,0 +1,516 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Condiciones Generales de Venta - Grupo Ecocorum</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <style>
+        :root {
+            --primary-color: #438e44;
+            --primary-dark: #357035;
+            --primary-light: #5aa85b;
+            --text-dark: #1a1a1a;
+            --text-medium: #4a4a4a;
+            --text-light: #6b7280;
+            --bg-light: #f9fafb;
+            --white: #ffffff;
+            --border-color: #e5e7eb;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: var(--bg-light);
+            color: var(--text-medium);
+            line-height: 1.7;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+
+        .terms-page {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 60px 24px;
+        }
+
+        /* ===== HEADER ===== */
+        .page-header {
+            text-align: center;
+            margin-bottom: 48px;
+            animation: fadeInDown 0.8s ease-out;
+        }
+
+        .header-icon {
+            width: 80px;
+            height: 80px;
+            background: linear-gradient(135deg, var(--primary-color), var(--primary-light));
+            border-radius: 20px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 24px;
+            box-shadow: 0 10px 30px rgba(67, 142, 68, 0.2);
+        }
+
+        .header-icon svg {
+            width: 40px;
+            height: 40px;
+            color: white;
+        }
+
+        .page-title {
+            font-size: clamp(2rem, 5vw, 2.5rem);
+            font-weight: 800;
+            color: var(--text-dark);
+            margin-bottom: 12px;
+            line-height: 1.2;
+        }
+
+        .page-meta {
+            font-size: 0.9375rem;
+            color: var(--text-light);
+            font-style: italic;
+        }
+
+        /* ===== CONTENT ===== */
+        .terms-content {
+            animation: fadeInUp 0.6s ease-out 0.2s backwards;
+        }
+
+        .terms-section {
+            background: var(--white);
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            padding: 32px;
+            margin-bottom: 24px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+            transition: all 0.3s ease;
+        }
+
+        .terms-section:hover {
+            box-shadow: 0 8px 20px rgba(67, 142, 68, 0.08);
+            border-color: var(--primary-light);
+        }
+
+        .section-title {
+            font-size: 1.375rem;
+            font-weight: 700;
+            color: var(--text-dark);
+            margin-bottom: 16px;
+            padding-bottom: 12px;
+            border-bottom: 2px solid var(--border-color);
+            position: relative;
+        }
+
+        .section-title::before {
+            content: '';
+            position: absolute;
+            bottom: -2px;
+            left: 0;
+            width: 80px;
+            height: 2px;
+            background: linear-gradient(90deg, var(--primary-color), var(--primary-light));
+        }
+
+        .terms-content p {
+            margin-bottom: 16px;
+            line-height: 1.8;
+        }
+
+        .terms-content p:last-child {
+            margin-bottom: 0;
+        }
+
+        .terms-content strong {
+            color: var(--text-dark);
+            font-weight: 600;
+        }
+
+        .terms-content a {
+            color: var(--primary-color);
+            text-decoration: none;
+            font-weight: 600;
+            transition: color 0.3s ease;
+            border-bottom: 1px solid transparent;
+        }
+
+        .terms-content a:hover {
+            color: var(--primary-dark);
+            border-bottom-color: var(--primary-dark);
+        }
+
+        /* ===== LISTS ===== */
+        .terms-content ul {
+            margin: 16px 0;
+            padding-left: 28px;
+        }
+
+        .terms-content li {
+            margin-bottom: 12px;
+            line-height: 1.8;
+        }
+
+        .terms-content li::marker {
+            color: var(--primary-color);
+        }
+
+        /* ===== CONTACT BOX ===== */
+        .contact-box {
+            background: linear-gradient(135deg, rgba(67, 142, 68, 0.05), rgba(90, 168, 91, 0.08));
+            border: 1px solid rgba(67, 142, 68, 0.2);
+            border-radius: 12px;
+            padding: 24px;
+            margin: 24px 0;
+        }
+
+        .contact-box p {
+            margin: 0;
+            line-height: 1.8;
+        }
+
+        .contact-box strong {
+            color: var(--primary-dark);
+            display: block;
+            margin-bottom: 12px;
+            font-size: 1.0625rem;
+        }
+
+        .contact-info {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .contact-label {
+            font-weight: 600;
+            color: var(--text-dark);
+            min-width: 90px;
+        }
+
+        /* ===== IMPORTANT BOX ===== */
+        .important-box {
+            background: linear-gradient(135deg, rgba(245, 158, 11, 0.05), rgba(251, 191, 36, 0.08));
+            border-left: 4px solid #f59e0b;
+            padding: 20px 24px;
+            border-radius: 8px;
+            margin: 20px 0;
+        }
+
+        .important-box p {
+            margin: 0;
+        }
+
+        /* ===== NOTE BOX ===== */
+        .note-box {
+            background: linear-gradient(135deg, rgba(59, 130, 246, 0.05), rgba(96, 165, 250, 0.08));
+            border-left: 4px solid #3b82f6;
+            padding: 20px 24px;
+            border-radius: 8px;
+            margin: 20px 0;
+        }
+
+        .note-box p {
+            margin: 0;
+        }
+
+        /* ===== CONTACT CTA ===== */
+        .contact-cta {
+            background: linear-gradient(135deg, var(--primary-dark), var(--primary-color));
+            padding: 40px;
+            border-radius: 16px;
+            text-align: center;
+            margin-top: 48px;
+            color: white;
+            animation: fadeInUp 0.8s ease-out 0.4s backwards;
+        }
+
+        .contact-cta h2 {
+            font-size: 1.5rem;
+            font-weight: 800;
+            margin-bottom: 12px;
+        }
+
+        .contact-cta p {
+            font-size: 1rem;
+            margin-bottom: 28px;
+            opacity: 0.95;
+        }
+
+        .contact-methods {
+            display: flex;
+            justify-content: center;
+            gap: 16px;
+            flex-wrap: wrap;
+        }
+
+        .contact-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            background: white;
+            color: var(--primary-dark);
+            padding: 12px 24px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.9375rem;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        }
+
+        .contact-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+            color: var(--primary-dark);
+        }
+
+        .contact-btn svg {
+            width: 18px;
+            height: 18px;
+        }
+
+        /* ===== ANIMATIONS ===== */
+        @keyframes fadeInDown {
+            from {
+                opacity: 0;
+                transform: translateY(-30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* ===== RESPONSIVE ===== */
+        @media (max-width: 768px) {
+            .terms-page {
+                padding: 40px 20px;
+            }
+
+            .page-header {
+                margin-bottom: 32px;
+            }
+
+            .terms-section {
+                padding: 24px 20px;
+            }
+
+            .contact-box {
+                padding: 20px;
+            }
+
+            .contact-cta {
+                padding: 28px 20px;
+            }
+
+            .contact-methods {
+                flex-direction: column;
+            }
+
+            .contact-btn {
+                width: 100%;
+                justify-content: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="terms-page">
+        <!-- Header -->
+        <header class="page-header">
+            <div class="header-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-3 7h3m-3 4h3m-6-4h.01M9 16h.01"/>
+                </svg>
+            </div>
+            <h1 class="page-title">Condiciones Generales de Venta</h1>
+            <p class="page-meta">Última actualización: 31/10/2025</p>
+        </header>
+
+        <!-- Content -->
+        <div class="terms-content">
+            <!-- Section 1 -->
+            <section class="terms-section">
+                <h2 class="section-title">1. Objeto y ámbito de aplicación</h2>
+                <p>
+                    Las presentes Condiciones Generales de Venta (CGV) regulan la relación contractual entre <strong>Ecoservicios y Biomateriales S.L.</strong> (Grupo ECOCORUM) y el cliente, en el marco de la compra de productos comercializados a través del sitio web <a href="https://grupoecocorum.es" target="_blank" rel="noopener">https://grupoecocorum.es</a>. Toda compra implica la aceptación plena de estas condiciones.
+                </p>
+            </section>
+
+            <!-- Section 2 -->
+            <section class="terms-section">
+                <h2 class="section-title">2. Plazos y condiciones de entrega</h2>
+                <p>
+                    Los plazos medios de entrega son de <strong>2 a 5 días laborables</strong> a partir de la confirmación del pago, según destino y disponibilidad logística. Las entregas se efectúan mediante <strong>transportistas concertados</strong> equipados con plataforma elevadora y transpaleta.
+                </p>
+                <p>
+                    Antes de realizar el pedido, el cliente debe asegurarse de que el acceso permite la maniobra del vehículo (camión 19 T, 11,4 m largo, 2,55 m ancho, 4 m alto). En caso de duda, puede contactarnos antes de la compra.
+                </p>
+
+                <div class="contact-box">
+                    <strong>Contacto previo a la entrega:</strong>
+                    <div class="contact-info">
+                        <div class="contact-item">
+                            <span class="contact-label">Email:</span>
+                            <a href="mailto:contacto@grupoecocorum.es">contacto@grupoecocorum.es</a>
+                        </div>
+                        <div class="contact-item">
+                            <span class="contact-label">Teléfono:</span>
+                            <a href="tel:+34663166160">+34 663 16 61 60</a>
+                        </div>
+                        <div class="contact-item">
+                            <span class="contact-label">WhatsApp:</span>
+                            <a href="https://wa.me/34686781490" target="_blank" rel="noopener">+34 686 78 14 90</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="important-box">
+                    <p>
+                        <strong>Importante:</strong> Indique en el pedido cualquier restricción de acceso (alta montaña, calle sin salida, zonas peatonales, etc.). El incumplimiento de esta información puede generar costes adicionales de reentrega.
+                    </p>
+                </div>
+            </section>
+
+            <!-- Section 3 -->
+            <section class="terms-section">
+                <h2 class="section-title">3. Durante la entrega</h2>
+                <p>
+                    El conductor descargará la mercancía en la salida de la plataforma elevadora, a pie de calle. El servicio no incluye manipulación interior ni subida a plantas.
+                </p>
+                <ul>
+                    <li>Si la entrega no puede realizarse por causa imputable al cliente (ausencia o acceso imposible), se podrá reprogramar con <strong>coste adicional</strong>.</li>
+                    <li>En caso de cancelación, se reembolsará el importe <strong>menos los gastos de transporte</strong> de ida y, si procede, de retorno.</li>
+                </ul>
+            </section>
+
+            <!-- Section 4 -->
+            <section class="terms-section">
+                <h2 class="section-title">4. Después de la entrega</h2>
+                <p>
+                    El cliente debe verificar los bultos y el estado de la mercancía en el momento de la entrega. Cualquier daño o falta deberá indicarse en el albarán y comunicarse dentro de las <strong>48 h siguientes</strong>.
+                </p>
+                <p>
+                    Contacte nuestro servicio posventa en: <a href="mailto:contacto@grupoecocorum.es">contacto@grupoecocorum.es</a>.
+                </p>
+            </section>
+
+            <!-- Section 5 -->
+            <section class="terms-section">
+                <h2 class="section-title">5. Derecho de desistimiento</h2>
+                <p>
+                    Conforme al Real Decreto Legislativo 1/2007, el cliente dispone de <strong>15 días naturales</strong> desde la recepción para ejercer el derecho de desistimiento, sin necesidad de justificación. Los productos deben devolverse en perfecto estado y con su embalaje original.
+                </p>
+                <ul>
+                    <li>El reembolso se efectuará por el mismo medio de pago utilizado.</li>
+                    <li>Los gastos de devolución corren a cargo del cliente, salvo error o defecto del producto.</li>
+                    <li>El reembolso se realizará en un máximo de <strong>14 días</strong> desde la recepción de la mercancía devuelta.</li>
+                </ul>
+                <p>Más detalles en nuestra <a href="/condiciones-generales-de-venta/">política de devoluciones</a>.</p>
+            </section>
+
+            <!-- Section 6 -->
+            <section class="terms-section">
+                <h2 class="section-title">6. Condiciones de pago</h2>
+                <p>
+                    Aceptamos pagos mediante <strong>tarjeta de crédito o débito</strong> (Visa, Mastercard, Maestro) y <strong>transferencia bancaria</strong> (SEPA). Todos los pagos se procesan en euros (EUR) bajo conexión <strong>HTTPS/TLS segura</strong>.
+                </p>
+                <p>Consulta los detalles en la página <a href="/pagos-seguros/">Pagos seguros</a>.</p>
+            </section>
+
+            <!-- Section 7 -->
+            <section class="terms-section">
+                <h2 class="section-title">7. Ruptura de stock</h2>
+                <p>
+                    En caso de agotamiento de existencias, <strong>Grupo ECOCORUM</strong> podrá suministrar un producto equivalente con las mismas características y calidad. Si el cliente no lo acepta, podrá solicitar el reembolso total sin penalización.
+                </p>
+            </section>
+
+            <!-- Section 8 -->
+            <section class="terms-section">
+                <h2 class="section-title">8. Garantías legales</h2>
+                <p>
+                    Todos los productos están cubiertos por la <strong>garantía legal de conformidad</strong> conforme a la Ley 23/2003 y el Real Decreto 1/2007. En caso de no conformidad, el cliente podrá solicitar reparación, sustitución o reembolso dentro de los plazos legales.
+                </p>
+                <p>Para reclamaciones, contacta a <a href="mailto:contacto@grupoecocorum.es">contacto@grupoecocorum.es</a>.</p>
+            </section>
+
+            <!-- Section 9 -->
+            <section class="terms-section">
+                <h2 class="section-title">9. Responsabilidad y fuerza mayor</h2>
+                <p>
+                    ECOCORUM no se responsabiliza de retrasos o incumplimientos debidos a causas de fuerza mayor (climatología extrema, huelgas, restricciones de transporte, incidencias logísticas).
+                </p>
+            </section>
+
+            <!-- Section 10 -->
+            <section class="terms-section">
+                <h2 class="section-title">10. Resolución de conflictos</h2>
+                <p>
+                    En caso de litigio, las partes se comprometen a buscar una solución amistosa. El cliente puede recurrir al sistema europeo de resolución de litigios en línea (ODR) disponible en <a href="https://ec.europa.eu/consumers/odr" target="_blank" rel="nofollow noopener">https://ec.europa.eu/consumers/odr</a>. Si no hay acuerdo, la jurisdicción competente será la de los Juzgados de Ourense (España).
+                </p>
+            </section>
+
+            <!-- Section 11 -->
+            <section class="terms-section">
+                <h2 class="section-title">11. Contacto</h2>
+                <p>
+                    Para cualquier duda relacionada con estas condiciones o con tu pedido, puedes escribirnos a <a href="mailto:contacto@grupoecocorum.es">contacto@grupoecocorum.es</a>, o contactar por <strong>WhatsApp</strong> al <a href="https://wa.me/34686781490" target="_blank" rel="noopener">+34 686 78 14 90</a> o por teléfono al <a href="tel:+34663166160">+34 663 16 61 60</a>.
+                </p>
+            </section>
+        </div>
+
+        <!-- Contact CTA -->
+        <div class="contact-cta">
+            <h2>¿Tienes dudas sobre tus condiciones de compra?</h2>
+            <p>Nuestro equipo está disponible para ayudarte</p>
+            <div class="contact-methods">
+                <a href="mailto:contacto@grupoecocorum.es" class="contact-btn">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/>
+                    </svg>
+                    <span>Email</span>
+                </a>
+                <a href="https://wa.me/34686781490" target="_blank" rel="noopener" class="contact-btn">
+                    <svg viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/>
+                    </svg>
+                    <span>WhatsApp</span>
+                </a>
+                <a href="tel:+34663166160" class="contact-btn">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"/>
+                    </svg>
+                    <span>+34 663 16 61 60</span>
+                </a>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
