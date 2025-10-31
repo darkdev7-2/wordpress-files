@@ -1,0 +1,412 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Opiniones de Clientes - Grupo Ecocorum</title>
+    <style>
+        /* ===== ESTILOS GENERALES ===== */
+        .ecocorum-reviews-section {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 60px 20px;
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            border-radius: 20px;
+        }
+
+        .reviews-header {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+
+        .reviews-header h2 {
+            font-size: 2.5rem;
+            color: #2c3e50;
+            margin-bottom: 15px;
+            font-weight: 700;
+        }
+
+        .reviews-header p {
+            font-size: 1.1rem;
+            color: #5a6c7d;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        /* ===== STATISTIQUES GLOBALES ===== */
+        .reviews-stats {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 40px;
+            margin-bottom: 40px;
+            flex-wrap: wrap;
+        }
+
+        .stat-item {
+            text-align: center;
+            background: white;
+            padding: 25px 35px;
+            border-radius: 15px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease;
+        }
+
+        .stat-item:hover {
+            transform: translateY(-5px);
+        }
+
+        .stat-number {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: #e67e22;
+            display: block;
+        }
+
+        .stat-label {
+            font-size: 0.95rem;
+            color: #7f8c8d;
+            margin-top: 5px;
+        }
+
+        /* ===== GRILLE D'AVIS ===== */
+        .reviews-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 30px;
+            margin-bottom: 40px;
+        }
+
+        .review-card {
+            background: white;
+            border-radius: 15px;
+            padding: 30px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.08);
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .review-card::before {
+            content: '"';
+            position: absolute;
+            top: -10px;
+            left: 20px;
+            font-size: 100px;
+            color: #f39c12;
+            opacity: 0.1;
+            font-family: Georgia, serif;
+        }
+
+        .review-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+        }
+
+        .review-header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 20px;
+            gap: 15px;
+        }
+
+        .reviewer-avatar {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            color: white;
+            font-weight: 600;
+            flex-shrink: 0;
+        }
+
+        .reviewer-info h4 {
+            margin: 0;
+            font-size: 1.1rem;
+            color: #2c3e50;
+            font-weight: 600;
+        }
+
+        .reviewer-info .reviewer-location {
+            font-size: 0.85rem;
+            color: #95a5a6;
+            margin-top: 3px;
+        }
+
+        .review-stars {
+            display: flex;
+            gap: 3px;
+            margin-bottom: 15px;
+        }
+
+        .star {
+            color: #f39c12;
+            font-size: 1.2rem;
+        }
+
+        .star.empty {
+            color: #ddd;
+        }
+
+        .review-text {
+            color: #34495e;
+            line-height: 1.7;
+            font-size: 0.95rem;
+            margin-bottom: 15px;
+        }
+
+        .review-product {
+            display: inline-block;
+            background: #ecf0f1;
+            padding: 6px 12px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            color: #7f8c8d;
+            font-weight: 500;
+        }
+
+        .review-date {
+            font-size: 0.8rem;
+            color: #95a5a6;
+            margin-top: 10px;
+            font-style: italic;
+        }
+
+        /* ===== BOUTON CTA ===== */
+        .reviews-cta {
+            text-align: center;
+            margin-top: 40px;
+        }
+
+        .cta-button {
+            display: inline-block;
+            background: linear-gradient(135deg, #e67e22 0%, #d35400 100%);
+            color: white;
+            padding: 15px 40px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1.1rem;
+            transition: all 0.3s ease;
+            box-shadow: 0 5px 15px rgba(230, 126, 34, 0.3);
+        }
+
+        .cta-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(230, 126, 34, 0.4);
+        }
+
+        /* ===== RESPONSIVE ===== */
+        @media (max-width: 768px) {
+            .reviews-header h2 {
+                font-size: 2rem;
+            }
+
+            .reviews-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .reviews-stats {
+                gap: 20px;
+            }
+
+            .stat-item {
+                padding: 20px 25px;
+            }
+
+            .stat-number {
+                font-size: 2rem;
+            }
+        }
+
+        /* ===== ANIMATION D'ENTRÉE ===== */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .review-card {
+            animation: fadeInUp 0.6s ease-out;
+            animation-fill-mode: both;
+        }
+
+        .review-card:nth-child(1) { animation-delay: 0.1s; }
+        .review-card:nth-child(2) { animation-delay: 0.2s; }
+        .review-card:nth-child(3) { animation-delay: 0.3s; }
+        .review-card:nth-child(4) { animation-delay: 0.4s; }
+        .review-card:nth-child(5) { animation-delay: 0.5s; }
+        .review-card:nth-child(6) { animation-delay: 0.6s; }
+    </style>
+</head>
+<body>
+
+    <div class="ecocorum-reviews-section">
+        <!-- En-tête -->
+        <div class="reviews-header">
+            <h2>¿Qué dicen nuestros clientes?</h2>
+            <p>Miles de hogares españoles confían en nosotros para sus soluciones de calefacción</p>
+        </div>
+
+        <!-- Statistiques -->
+        <div class="reviews-stats">
+            <div class="stat-item">
+                <span class="stat-number">4.8</span>
+                <div class="stat-label">⭐ Valoración media</div>
+            </div>
+            <div class="stat-item">
+                <span class="stat-number">2.500+</span>
+                <div class="stat-label">Clientes satisfechos</div>
+            </div>
+            <div class="stat-item">
+                <span class="stat-number">98%</span>
+                <div class="stat-label">Recomendarían</div>
+            </div>
+        </div>
+
+        <!-- Grille d'avis -->
+        <div class="reviews-grid" id="reviewsContainer">
+            <!-- Les avis seront insérés ici par JavaScript -->
+        </div>
+
+        <!-- Call to Action -->
+        <div class="reviews-cta">
+            <a href="#productos" class="cta-button">Ver nuestros productos</a>
+        </div>
+    </div>
+
+    <script>
+        // ===== DONNÉES DES AVIS =====
+        const reviews = [
+            {
+                name: "Carlos M.",
+                location: "Madrid",
+                rating: 5,
+                text: "Excelente servicio y productos de calidad. Compramos una estufa de pellets y estamos encantados. El equipo nos asesoró perfectamente y la instalación fue impecable. ¡Muy recomendable!",
+                product: "Estufa de pellets",
+                date: "Hace 2 semanas"
+            },
+            {
+                name: "María García",
+                location: "Barcelona",
+                rating: 5,
+                text: "La leña de encina que compré es de excelente calidad. Arde perfectamente y dura mucho tiempo. El servicio de entrega fue rápido y el precio muy competitivo. Volveré a comprar seguro.",
+                product: "Leña de encina",
+                date: "Hace 1 mes"
+            },
+            {
+                name: "Antonio R.",
+                location: "Valencia",
+                rating: 5,
+                text: "Profesionales de principio a fin. Necesitábamos una estufa de leña para nuestra casa rural y nos ayudaron a elegir el modelo perfecto. La instalación fue rápida y el resultado es espectacular.",
+                product: "Estufa de leña",
+                date: "Hace 3 semanas"
+            },
+            {
+                name: "Isabel Fernández",
+                location: "Sevilla",
+                rating: 4,
+                text: "Muy contentos con los pellets de madera. La calidad es muy buena y el poder calorífico excelente. El único inconveniente fue un pequeño retraso en la entrega, pero nos avisaron con antelación.",
+                product: "Pellets premium",
+                date: "Hace 1 semana"
+            },
+            {
+                name: "Javier López",
+                location: "Zaragoza",
+                rating: 5,
+                text: "Llevamos años comprando leña aquí y nunca nos han defraudado. Siempre seca, bien cortada y a buen precio. El trato personal es cercano y atento. Sin duda, los mejores de la zona.",
+                product: "Leña de roble",
+                date: "Hace 2 meses"
+            },
+            {
+                name: "Laura S.",
+                location: "Málaga",
+                rating: 5,
+                text: "Increíble atención al cliente. Tenía muchas dudas sobre qué sistema de calefacción elegir y me dedicaron todo el tiempo necesario para explicarme las opciones. Finalmente instalamos una estufa de pellets y no podemos estar más contentos.",
+                product: "Estufa de pellets",
+                date: "Hace 3 días"
+            }
+        ];
+
+        // ===== FONCTION POUR GÉNÉRER LES ÉTOILES =====
+        function generateStars(rating) {
+            let starsHTML = '';
+            for (let i = 1; i <= 5; i++) {
+                if (i <= rating) {
+                    starsHTML += '<span class="star">★</span>';
+                } else {
+                    starsHTML += '<span class="star empty">★</span>';
+                }
+            }
+            return starsHTML;
+        }
+
+        // ===== FONCTION POUR OBTENIR LES INITIALES =====
+        function getInitials(name) {
+            const names = name.split(' ');
+            return names[0][0] + (names[1] ? names[1][0] : '');
+        }
+
+        // ===== FONCTION POUR GÉNÉRER UNE COULEUR D'AVATAR =====
+        function getAvatarColor(index) {
+            const colors = [
+                'linear-gradient(135deg, #667eea 0%, #764ba2 100%)',
+                'linear-gradient(135deg, #f093fb 0%, #f5576c 100%)',
+                'linear-gradient(135deg, #4facfe 0%, #00f2fe 100%)',
+                'linear-gradient(135deg, #43e97b 0%, #38f9d7 100%)',
+                'linear-gradient(135deg, #fa709a 0%, #fee140 100%)',
+                'linear-gradient(135deg, #30cfd0 0%, #330867 100%)'
+            ];
+            return colors[index % colors.length];
+        }
+
+        // ===== FONCTION POUR AFFICHER LES AVIS =====
+        function displayReviews() {
+            const container = document.getElementById('reviewsContainer');
+
+            reviews.forEach((review, index) => {
+                const reviewCard = document.createElement('div');
+                reviewCard.className = 'review-card';
+
+                reviewCard.innerHTML = `
+                    <div class="review-header">
+                        <div class="reviewer-avatar" style="background: ${getAvatarColor(index)}">
+                            ${getInitials(review.name)}
+                        </div>
+                        <div class="reviewer-info">
+                            <h4>${review.name}</h4>
+                            <div class="reviewer-location">📍 ${review.location}</div>
+                        </div>
+                    </div>
+                    <div class="review-stars">
+                        ${generateStars(review.rating)}
+                    </div>
+                    <div class="review-text">
+                        ${review.text}
+                    </div>
+                    <div class="review-product">
+                        🔥 ${review.product}
+                    </div>
+                    <div class="review-date">${review.date}</div>
+                `;
+
+                container.appendChild(reviewCard);
+            });
+        }
+
+        // ===== INITIALISATION =====
+        document.addEventListener('DOMContentLoaded', displayReviews);
+    </script>
+
+</body>
+</html>
