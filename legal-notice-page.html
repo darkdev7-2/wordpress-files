@@ -1,0 +1,464 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Avisos Legales - Grupo Ecocorum</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <style>
+        :root {
+            --primary-color: #438e44;
+            --primary-dark: #357035;
+            --primary-light: #5aa85b;
+            --text-dark: #1a1a1a;
+            --text-medium: #4a4a4a;
+            --text-light: #6b7280;
+            --bg-light: #f9fafb;
+            --white: #ffffff;
+            --border-color: #e5e7eb;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: var(--bg-light);
+            color: var(--text-medium);
+            line-height: 1.7;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+
+        .legal-page {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 60px 24px;
+        }
+
+        /* ===== HEADER ===== */
+        .page-header {
+            text-align: center;
+            margin-bottom: 48px;
+            animation: fadeInDown 0.8s ease-out;
+        }
+
+        .header-icon {
+            width: 80px;
+            height: 80px;
+            background: linear-gradient(135deg, var(--primary-color), var(--primary-light));
+            border-radius: 20px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 24px;
+            box-shadow: 0 10px 30px rgba(67, 142, 68, 0.2);
+        }
+
+        .header-icon svg {
+            width: 40px;
+            height: 40px;
+            color: white;
+        }
+
+        .page-title {
+            font-size: clamp(2rem, 5vw, 2.5rem);
+            font-weight: 800;
+            color: var(--text-dark);
+            margin-bottom: 12px;
+            line-height: 1.2;
+        }
+
+        .page-meta {
+            font-size: 0.9375rem;
+            color: var(--text-light);
+            font-style: italic;
+        }
+
+        /* ===== CONTENT ===== */
+        .legal-content {
+            animation: fadeInUp 0.6s ease-out 0.2s backwards;
+        }
+
+        .legal-section {
+            margin-bottom: 40px;
+        }
+
+        .section-title {
+            font-size: 1.375rem;
+            font-weight: 700;
+            color: var(--text-dark);
+            margin-bottom: 16px;
+            padding-bottom: 12px;
+            border-bottom: 2px solid var(--border-color);
+            position: relative;
+        }
+
+        .section-title::before {
+            content: '';
+            position: absolute;
+            bottom: -2px;
+            left: 0;
+            width: 80px;
+            height: 2px;
+            background: linear-gradient(90deg, var(--primary-color), var(--primary-light));
+        }
+
+        .legal-content p {
+            margin-bottom: 16px;
+            line-height: 1.8;
+        }
+
+        .legal-content strong {
+            color: var(--text-dark);
+            font-weight: 600;
+        }
+
+        .legal-content a {
+            color: var(--primary-color);
+            text-decoration: none;
+            font-weight: 600;
+            transition: color 0.3s ease;
+            border-bottom: 1px solid transparent;
+        }
+
+        .legal-content a:hover {
+            color: var(--primary-dark);
+            border-bottom-color: var(--primary-dark);
+        }
+
+        /* ===== INFO BOX ===== */
+        .legal-box {
+            background: var(--white);
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            padding: 28px;
+            margin: 24px 0;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+        }
+
+        .legal-box-grid {
+            display: grid;
+            gap: 28px;
+        }
+
+        @media (min-width: 768px) {
+            .legal-box-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+
+        .legal-box p {
+            margin-bottom: 8px;
+            line-height: 1.8;
+        }
+
+        .legal-box p:last-child {
+            margin-bottom: 0;
+        }
+
+        .box-label {
+            font-size: 0.875rem;
+            color: var(--text-light);
+            margin-bottom: 16px;
+            padding: 8px 12px;
+            background: var(--bg-light);
+            border-radius: 6px;
+            display: inline-block;
+        }
+
+        /* ===== HIGHLIGHT BOX ===== */
+        .highlight-box {
+            background: linear-gradient(135deg, rgba(67, 142, 68, 0.05), rgba(90, 168, 91, 0.08));
+            border-left: 4px solid var(--primary-color);
+            padding: 20px 24px;
+            border-radius: 8px;
+            margin: 24px 0;
+        }
+
+        .highlight-box p {
+            margin: 0;
+        }
+
+        /* ===== CONTACT CTA ===== */
+        .contact-cta {
+            background: linear-gradient(135deg, var(--primary-dark), var(--primary-color));
+            padding: 40px;
+            border-radius: 16px;
+            text-align: center;
+            margin-top: 48px;
+            color: white;
+            animation: fadeInUp 0.8s ease-out 0.4s backwards;
+        }
+
+        .contact-cta h2 {
+            font-size: 1.5rem;
+            font-weight: 800;
+            margin-bottom: 12px;
+        }
+
+        .contact-cta p {
+            font-size: 1rem;
+            margin-bottom: 28px;
+            opacity: 0.95;
+        }
+
+        .contact-methods {
+            display: flex;
+            justify-content: center;
+            gap: 16px;
+            flex-wrap: wrap;
+        }
+
+        .contact-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            background: white;
+            color: var(--primary-dark);
+            padding: 12px 24px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.9375rem;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        }
+
+        .contact-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+            color: var(--primary-dark);
+        }
+
+        .contact-btn svg {
+            width: 18px;
+            height: 18px;
+        }
+
+        /* ===== ANIMATIONS ===== */
+        @keyframes fadeInDown {
+            from {
+                opacity: 0;
+                transform: translateY(-30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* ===== RESPONSIVE ===== */
+        @media (max-width: 768px) {
+            .legal-page {
+                padding: 40px 20px;
+            }
+
+            .page-header {
+                margin-bottom: 32px;
+            }
+
+            .legal-box {
+                padding: 20px;
+            }
+
+            .contact-cta {
+                padding: 28px 20px;
+            }
+
+            .contact-methods {
+                flex-direction: column;
+            }
+
+            .contact-btn {
+                width: 100%;
+                justify-content: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="legal-page">
+        <!-- Header -->
+        <header class="page-header">
+            <div class="header-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/>
+                </svg>
+            </div>
+            <h1 class="page-title">Avisos Legales</h1>
+            <p class="page-meta">Última actualización: 31/10/2025</p>
+        </header>
+
+        <!-- Content -->
+        <div class="legal-content">
+            <!-- Section 1 -->
+            <section class="legal-section">
+                <h2 class="section-title">1. Identidad del titular del sitio web</h2>
+                <div class="legal-box">
+                    <div class="legal-box-grid">
+                        <div>
+                            <p><strong>Titular:</strong> Ecoservicios y Biomateriales S.L. (GRUPO ECOCORUM)</p>
+                            <p><strong>CIF:</strong> B32448599</p>
+                            <p><strong>Domicilio social:</strong> Cortegada, Ourense (32200), España</p>
+                            <p><strong>Email:</strong> <a href="mailto:contacto@grupoecocorum.es">contacto@grupoecocorum.es</a></p>
+                            <p><strong>WhatsApp:</strong> <a href="https://wa.me/34686781490" target="_blank" rel="noopener">+34 686 78 14 90</a></p>
+                            <p><strong>Teléfono:</strong> <a href="tel:+34663166160">+34 663 16 61 60</a></p>
+                        </div>
+                        <div>
+                            <span class="box-label">Información registral</span>
+                            <p>Sociedad de responsabilidad limitada inscrita en el Registro Mercantil de Ourense.</p>
+                            <p>Sitio web: <a href="https://grupoecocorum.es" target="_blank" rel="noopener">https://grupoecocorum.es</a></p>
+                            <p>El acceso y uso del sitio implican la aceptación de estos avisos y condiciones.</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Section 2 -->
+            <section class="legal-section">
+                <h2 class="section-title">2. Marco normativo aplicable</h2>
+                <p>
+                    Este sitio se rige por la <strong>Ley 34/2002</strong>, de Servicios de la Sociedad de la Información y del Comercio
+                    Electrónico (LSSI-CE), el <strong>Reglamento (UE) 2016/679</strong> (RGPD) y la <strong>LOPDGDD 3/2018</strong>, así como
+                    por el <strong>Texto Refundido de la Ley de Propiedad Intelectual</strong> (RDL 1/1996) y demás normativa española aplicable.
+                </p>
+            </section>
+
+            <!-- Section 3 -->
+            <section class="legal-section">
+                <h2 class="section-title">3. Condiciones de uso del sitio</h2>
+                <p>
+                    El usuario se compromete a utilizar el sitio y sus contenidos de forma diligente, correcta y lícita, evitando
+                    cualesquiera actividades que puedan impedir su normal funcionamiento o vulnerar derechos de terceros.
+                    GRUPO ECOCORUM podrá interrumpir temporalmente el acceso por mantenimiento o mejora del servicio.
+                </p>
+            </section>
+
+            <!-- Section 4 -->
+            <section class="legal-section">
+                <h2 class="section-title">4. Limitación de responsabilidad</h2>
+                <p>
+                    Aunque procuramos que la información publicada sea exacta y actualizada, puede contener errores materiales o
+                    tipográficos. GRUPO ECOCORUM no asume responsabilidad por decisiones tomadas a partir de la información del sitio,
+                    ni por daños derivados del acceso o uso del mismo. Los enlaces externos se facilitan como referencia: no
+                    controlamos su contenido ni garantizamos su disponibilidad o legalidad.
+                </p>
+            </section>
+
+            <!-- Section 5 -->
+            <section class="legal-section">
+                <h2 class="section-title">5. Propiedad intelectual e industrial</h2>
+                <p>
+                    La estructura del sitio, su diseño, códigos fuente, textos, imágenes, marcas y demás contenidos están protegidos
+                    por derechos de <strong>propiedad intelectual e industrial</strong>. Queda prohibida su reproducción, distribución,
+                    comunicación pública o transformación sin autorización previa y por escrito del titular. El uso no autorizado
+                    puede generar responsabilidades civiles y/o penales.
+                </p>
+            </section>
+
+            <!-- Section 6 -->
+            <section class="legal-section">
+                <h2 class="section-title">6. Protección de datos personales</h2>
+                <p>
+                    El responsable del tratamiento es <strong>Ecoservicios y Biomateriales S.L.</strong>. Tratamos los datos que nos
+                    facilitas para gestionar compras, envíos, facturación, atención al cliente y, en su caso, comunicaciones
+                    comerciales consentidas. La base jurídica es la <strong>ejecución del contrato</strong>, el <strong>cumplimiento de
+                    obligaciones legales</strong> y el <strong>consentimiento</strong> (cuando proceda).
+                </p>
+                <div class="highlight-box">
+                    <p>
+                        Podrás ejercer los derechos de acceso, rectificación, supresión, oposición, limitación y portabilidad
+                        mediante solicitud a <a href="mailto:contacto@grupoecocorum.es">contacto@grupoecocorum.es</a>.
+                        Más información en nuestra <a href="/politica-de-privacidad/">Política de privacidad</a> y
+                        <a href="/condiciones-generales-de-venta/">Condiciones generales</a>.
+                    </p>
+                </div>
+            </section>
+
+            <!-- Section 7 -->
+            <section class="legal-section">
+                <h2 class="section-title">7. Política de cookies</h2>
+                <p>
+                    Utilizamos cookies técnicas y, en su caso, analíticas con fines de medición y mejora del servicio.
+                    Puedes configurar o revocar tu consentimiento en el panel de <strong>preferencias de cookies</strong>.
+                    Consulta la <a href="/politica-de-privacidad/">Política de privacidad</a> para más detalles.
+                </p>
+            </section>
+
+            <!-- Section 8 -->
+            <section class="legal-section">
+                <h2 class="section-title">8. Seguridad y confidencialidad</h2>
+                <p>
+                    El sitio emplea conexión <strong>HTTPS (TLS/SSL)</strong>. En pagos con tarjeta trabajamos con pasarela con
+                    <strong>cumplimiento PCI DSS</strong> y no almacenamos los datos completos de la tarjeta en nuestra tienda.
+                    Adoptamos medidas razonables para proteger la información frente a accesos no autorizados.
+                </p>
+            </section>
+
+            <!-- Section 9 -->
+            <section class="legal-section">
+                <h2 class="section-title">9. Ley aplicable y jurisdicción</h2>
+                <p>
+                    Las presentes condiciones se rigen por la legislación española. Salvo derechos imperativos del consumidor,
+                    las partes se someten a los Juzgados y Tribunales de Ourense para la resolución de conflictos relacionados con el sitio.
+                </p>
+            </section>
+
+            <!-- Section 10 -->
+            <section class="legal-section">
+                <h2 class="section-title">10. Contacto</h2>
+                <p>
+                    Para cualquier consulta o solicitud relacionada con estos avisos legales, puedes escribir a
+                    <a href="mailto:contacto@grupoecocorum.es">contacto@grupoecocorum.es</a>, contactar por
+                    <strong>WhatsApp</strong> al <a href="https://wa.me/34686781490" target="_blank" rel="noopener">+34 686 78 14 90</a>
+                    o llamar al <a href="tel:+34663166160">+34 663 16 61 60</a>.
+                </p>
+            </section>
+        </div>
+
+        <!-- Contact CTA -->
+        <div class="contact-cta">
+            <h2>¿Tienes alguna duda legal?</h2>
+            <p>Nuestro equipo está disponible para ayudarte</p>
+            <div class="contact-methods">
+                <a href="mailto:contacto@grupoecocorum.es" class="contact-btn">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/>
+                    </svg>
+                    <span>Email</span>
+                </a>
+                <a href="https://wa.me/34686781490" target="_blank" rel="noopener" class="contact-btn">
+                    <svg viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/>
+                    </svg>
+                    <span>WhatsApp</span>
+                </a>
+                <a href="tel:+34663166160" class="contact-btn">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"/>
+                    </svg>
+                    <span>+34 663 16 61 60</span>
+                </a>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
