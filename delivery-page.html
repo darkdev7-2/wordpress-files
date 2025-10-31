@@ -6,343 +6,540 @@
     <title>Información de Entrega - Grupo Ecocorum</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
 
     <style>
+        /* =====================================================
+           VARIABLES CSS PROFESSIONNELLES
+        ===================================================== */
         :root {
-            --primary-color: #438e44;
+            --primary: #438e44;
             --primary-dark: #357035;
             --primary-light: #5aa85b;
+            --primary-ultra-light: #e8f5e9;
+
             --accent-blue: #3b82f6;
             --accent-orange: #f59e0b;
-            --text-dark: #1a1a1a;
-            --text-medium: #4a4a4a;
-            --text-light: #6b7280;
-            --bg-light: #f9fafb;
-            --white: #ffffff;
-            --border-color: #e5e7eb;
+            --accent-red: #ef4444;
+
+            --text-primary: #1a1a1a;
+            --text-secondary: #4a4a4a;
+            --text-tertiary: #6b7280;
+            --text-quaternary: #9ca3af;
+
+            --bg-primary: #ffffff;
+            --bg-secondary: #f9fafb;
+            --bg-tertiary: #f3f4f6;
+
+            --border-light: #e5e7eb;
+            --border-medium: #d1d5db;
+
+            --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+            --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+            --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+            --shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
+            --shadow-2xl: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+
+            --radius-sm: 8px;
+            --radius-md: 12px;
+            --radius-lg: 16px;
+            --radius-xl: 24px;
+
+            --spacing-xs: 8px;
+            --spacing-sm: 16px;
+            --spacing-md: 24px;
+            --spacing-lg: 32px;
+            --spacing-xl: 48px;
+            --spacing-2xl: 64px;
+            --spacing-3xl: 96px;
         }
 
+        /* =====================================================
+           RESET & BASE STYLES
+        ===================================================== */
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
         }
 
+        html {
+            scroll-behavior: smooth;
+        }
+
         body {
             font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-            background: var(--bg-light);
-            color: var(--text-medium);
+            background: var(--bg-secondary);
+            color: var(--text-secondary);
             line-height: 1.7;
             -webkit-font-smoothing: antialiased;
             -moz-osx-font-smoothing: grayscale;
+            font-size: 16px;
         }
 
-        .delivery-page {
-            max-width: 1200px;
+        /* =====================================================
+           HERO SECTION - DESIGN SOPHISTIQUÉ
+        ===================================================== */
+        .hero-section {
+            background: linear-gradient(135deg, var(--primary-dark) 0%, var(--primary) 50%, var(--primary-light) 100%);
+            padding: var(--spacing-3xl) var(--spacing-md);
+            margin-bottom: var(--spacing-2xl);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg width="100" height="100" xmlns="http://www.w3.org/2000/svg"><rect width="100" height="100" fill="none"/><path d="M0 0L100 100M100 0L0 100" stroke="rgba(255,255,255,0.03)" stroke-width="1"/></svg>');
+            background-size: 100px 100px;
+        }
+
+        .hero-content {
+            max-width: 1400px;
             margin: 0 auto;
-            padding: 60px 24px;
-        }
-
-        /* ===== HEADER ===== */
-        .page-header {
             text-align: center;
-            margin-bottom: 60px;
-            animation: fadeInDown 0.8s ease-out;
+            position: relative;
+            z-index: 1;
         }
 
-        .header-icon {
-            width: 80px;
-            height: 80px;
-            background: linear-gradient(135deg, var(--primary-color), var(--primary-light));
-            border-radius: 20px;
+        .hero-icon {
+            width: 120px;
+            height: 120px;
+            background: rgba(255, 255, 255, 0.15);
+            backdrop-filter: blur(10px);
+            border-radius: var(--radius-xl);
             display: inline-flex;
             align-items: center;
             justify-content: center;
-            margin-bottom: 24px;
-            box-shadow: 0 10px 30px rgba(67, 142, 68, 0.2);
+            margin-bottom: var(--spacing-lg);
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.2);
+            border: 2px solid rgba(255, 255, 255, 0.2);
         }
 
-        .header-icon svg {
-            width: 40px;
-            height: 40px;
+        .hero-icon svg {
+            width: 64px;
+            height: 64px;
             color: white;
         }
 
-        .page-title {
-            font-size: clamp(2rem, 5vw, 3rem);
-            font-weight: 800;
-            color: var(--text-dark);
-            margin-bottom: 12px;
-            line-height: 1.2;
+        .hero-title {
+            font-size: clamp(2.5rem, 6vw, 4rem);
+            font-weight: 900;
+            color: white;
+            margin-bottom: var(--spacing-sm);
+            line-height: 1.1;
+            letter-spacing: -0.02em;
         }
 
-        .page-subtitle {
-            font-size: 1.125rem;
-            color: var(--text-light);
-            margin-bottom: 16px;
+        .hero-subtitle {
+            font-size: clamp(1.125rem, 2vw, 1.5rem);
+            color: rgba(255, 255, 255, 0.95);
+            margin-bottom: var(--spacing-lg);
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+            font-weight: 400;
         }
 
-        .last-update {
-            display: inline-block;
-            background: rgba(67, 142, 68, 0.1);
-            color: var(--primary-dark);
-            padding: 6px 16px;
+        .hero-badges {
+            display: flex;
+            gap: var(--spacing-sm);
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .badge {
+            background: rgba(255, 255, 255, 0.2);
+            backdrop-filter: blur(10px);
+            color: white;
+            padding: 10px 20px;
             border-radius: 50px;
-            font-size: 0.875rem;
+            font-size: 0.9375rem;
             font-weight: 600;
+            border: 1px solid rgba(255, 255, 255, 0.3);
         }
 
-        /* ===== SECTIONS ===== */
-        .content-section {
-            background: var(--white);
-            border-radius: 16px;
-            padding: 40px;
-            margin-bottom: 24px;
-            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
-            border: 1px solid var(--border-color);
-            animation: fadeInUp 0.6s ease-out backwards;
+        /* =====================================================
+           CONTAINER PRINCIPAL
+        ===================================================== */
+        .main-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 var(--spacing-md) var(--spacing-3xl);
         }
 
-        .content-section:nth-child(1) { animation-delay: 0.1s; }
-        .content-section:nth-child(2) { animation-delay: 0.2s; }
-        .content-section:nth-child(3) { animation-delay: 0.3s; }
-        .content-section:nth-child(4) { animation-delay: 0.4s; }
-        .content-section:nth-child(5) { animation-delay: 0.5s; }
+        /* =====================================================
+           SECTION AVEC TITRE
+        ===================================================== */
+        .section {
+            margin-bottom: var(--spacing-2xl);
+        }
 
         .section-header {
-            display: flex;
-            align-items: center;
-            gap: 16px;
-            margin-bottom: 24px;
-            padding-bottom: 20px;
-            border-bottom: 2px solid var(--bg-light);
-        }
-
-        .section-icon {
-            width: 48px;
-            height: 48px;
-            background: linear-gradient(135deg, rgba(67, 142, 68, 0.1), rgba(90, 168, 91, 0.15));
-            border-radius: 12px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            flex-shrink: 0;
-        }
-
-        .section-icon svg {
-            width: 24px;
-            height: 24px;
-            color: var(--primary-color);
+            margin-bottom: var(--spacing-xl);
         }
 
         .section-title {
-            font-size: 1.5rem;
-            font-weight: 700;
-            color: var(--text-dark);
-        }
-
-        .section-content p {
-            margin-bottom: 16px;
-            color: var(--text-medium);
-            font-size: 1rem;
-        }
-
-        .section-content ul {
-            margin: 16px 0;
-            padding-left: 24px;
-        }
-
-        .section-content li {
-            margin-bottom: 12px;
-            color: var(--text-medium);
+            font-size: clamp(1.875rem, 3vw, 2.5rem);
+            font-weight: 800;
+            color: var(--text-primary);
+            margin-bottom: var(--spacing-sm);
+            line-height: 1.2;
             position: relative;
-        }
-
-        .section-content li::marker {
-            color: var(--primary-color);
-        }
-
-        .section-content strong {
-            color: var(--text-dark);
-            font-weight: 600;
-        }
-
-        /* ===== HIGHLIGHT BOXES ===== */
-        .highlight-box {
-            background: linear-gradient(135deg, rgba(67, 142, 68, 0.05), rgba(90, 168, 91, 0.08));
-            border-left: 4px solid var(--primary-color);
-            padding: 20px 24px;
-            border-radius: 8px;
-            margin: 24px 0;
-        }
-
-        .highlight-box p {
-            margin: 0;
-            color: var(--text-dark);
-        }
-
-        .warning-box {
-            background: linear-gradient(135deg, rgba(245, 158, 11, 0.05), rgba(251, 191, 36, 0.08));
-            border-left: 4px solid var(--accent-orange);
-            padding: 20px 24px;
-            border-radius: 8px;
-            margin: 24px 0;
-        }
-
-        .warning-box p {
-            margin: 0;
-            color: var(--text-dark);
-        }
-
-        /* ===== WEIGHT TABLE ===== */
-        .weight-table {
-            width: 100%;
-            border-collapse: separate;
-            border-spacing: 0;
-            margin: 24px 0;
-            overflow: hidden;
-            border-radius: 12px;
-            border: 1px solid var(--border-color);
-        }
-
-        .weight-table thead {
-            background: linear-gradient(135deg, var(--primary-color), var(--primary-light));
-        }
-
-        .weight-table th {
-            padding: 16px;
-            text-align: left;
-            color: white;
-            font-weight: 600;
-            font-size: 0.9375rem;
-        }
-
-        .weight-table td {
-            padding: 16px;
-            border-bottom: 1px solid var(--border-color);
-            background: white;
-        }
-
-        .weight-table tr:last-child td {
-            border-bottom: none;
-        }
-
-        .weight-table tbody tr:hover {
-            background: var(--bg-light);
-        }
-
-        .weight-badge {
             display: inline-block;
-            background: rgba(67, 142, 68, 0.1);
-            color: var(--primary-dark);
-            padding: 4px 12px;
-            border-radius: 6px;
-            font-weight: 600;
-            font-size: 0.875rem;
         }
 
-        /* ===== INFO CARDS ===== */
-        .info-cards {
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -8px;
+            left: 0;
+            width: 60%;
+            height: 4px;
+            background: linear-gradient(90deg, var(--primary), var(--primary-light));
+            border-radius: 2px;
+        }
+
+        .section-description {
+            font-size: 1.125rem;
+            color: var(--text-tertiary);
+            max-width: 900px;
+            line-height: 1.8;
+            margin-top: var(--spacing-md);
+        }
+
+        /* =====================================================
+           CARDS GRID - LAYOUT MODERNE
+        ===================================================== */
+        .cards-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 20px;
-            margin: 24px 0;
+            grid-template-columns: repeat(auto-fit, minmax(380px, 1fr));
+            gap: var(--spacing-lg);
         }
 
-        .info-card {
-            background: var(--bg-light);
-            padding: 24px;
-            border-radius: 12px;
-            border: 1px solid var(--border-color);
-            transition: all 0.3s ease;
+        .card {
+            background: var(--bg-primary);
+            border-radius: var(--radius-lg);
+            padding: var(--spacing-xl);
+            box-shadow: var(--shadow-md);
+            border: 1px solid var(--border-light);
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            position: relative;
+            overflow: hidden;
         }
 
-        .info-card:hover {
-            transform: translateY(-4px);
-            box-shadow: 0 8px 20px rgba(67, 142, 68, 0.1);
+        .card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, var(--primary), var(--primary-light));
+            transform: scaleX(0);
+            transform-origin: left;
+            transition: transform 0.4s ease;
+        }
+
+        .card:hover {
+            transform: translateY(-8px);
+            box-shadow: var(--shadow-xl);
             border-color: var(--primary-light);
         }
 
-        .info-card-icon {
-            width: 40px;
-            height: 40px;
-            background: linear-gradient(135deg, var(--primary-color), var(--primary-light));
-            border-radius: 10px;
+        .card:hover::before {
+            transform: scaleX(1);
+        }
+
+        .card-icon {
+            width: 72px;
+            height: 72px;
+            background: linear-gradient(135deg, var(--primary-ultra-light), rgba(67, 142, 68, 0.1));
+            border-radius: var(--radius-md);
             display: flex;
             align-items: center;
             justify-content: center;
-            margin-bottom: 16px;
+            margin-bottom: var(--spacing-md);
         }
 
-        .info-card-icon svg {
+        .card-icon svg {
+            width: 36px;
+            height: 36px;
+            color: var(--primary);
+        }
+
+        .card-title {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--text-primary);
+            margin-bottom: var(--spacing-sm);
+            line-height: 1.3;
+        }
+
+        .card-description {
+            font-size: 1rem;
+            color: var(--text-secondary);
+            line-height: 1.7;
+            margin-bottom: var(--spacing-md);
+        }
+
+        .card-features {
+            list-style: none;
+            padding: 0;
+        }
+
+        .card-features li {
+            display: flex;
+            align-items: flex-start;
+            gap: 12px;
+            margin-bottom: 12px;
+            font-size: 0.9375rem;
+            color: var(--text-secondary);
+            line-height: 1.6;
+        }
+
+        .card-features li::before {
+            content: '✓';
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
             width: 20px;
             height: 20px;
+            background: var(--primary);
             color: white;
-        }
-
-        .info-card h3 {
-            font-size: 1.125rem;
+            border-radius: 50%;
             font-weight: 700;
-            color: var(--text-dark);
-            margin-bottom: 8px;
+            font-size: 0.75rem;
+            flex-shrink: 0;
+            margin-top: 2px;
         }
 
-        .info-card p {
-            color: var(--text-medium);
-            font-size: 0.9375rem;
-            margin: 0;
+        /* =====================================================
+           INFO BOXES - DESIGN ÉLÉGANT
+        ===================================================== */
+        .info-box {
+            background: var(--bg-primary);
+            border-radius: var(--radius-lg);
+            padding: var(--spacing-xl);
+            box-shadow: var(--shadow-md);
+            border-left: 5px solid var(--primary);
+            margin-bottom: var(--spacing-lg);
         }
 
-        /* ===== CONTACT CTA ===== */
-        .contact-cta {
-            background: linear-gradient(135deg, var(--primary-dark), var(--primary-color));
-            padding: 48px;
-            border-radius: 16px;
-            text-align: center;
-            margin-top: 48px;
-            color: white;
-        }
-
-        .contact-cta h2 {
-            font-size: 1.875rem;
-            font-weight: 800;
-            margin-bottom: 16px;
-        }
-
-        .contact-cta p {
-            font-size: 1.125rem;
-            margin-bottom: 32px;
-            opacity: 0.95;
-        }
-
-        .contact-methods {
+        .info-box-title {
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: var(--text-primary);
+            margin-bottom: var(--spacing-sm);
             display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .info-box-content {
+            font-size: 1rem;
+            color: var(--text-secondary);
+            line-height: 1.8;
+        }
+
+        .info-box.warning {
+            border-left-color: var(--accent-orange);
+            background: linear-gradient(135deg, #fffbeb 0%, #fef3c7 100%);
+        }
+
+        .info-box.danger {
+            border-left-color: var(--accent-red);
+            background: linear-gradient(135deg, #fef2f2 0%, #fee2e2 100%);
+        }
+
+        .info-box.info {
+            border-left-color: var(--accent-blue);
+            background: linear-gradient(135deg, #eff6ff 0%, #dbeafe 100%);
+        }
+
+        /* =====================================================
+           TABLE - DESIGN MODERNE
+        ===================================================== */
+        .table-container {
+            background: var(--bg-primary);
+            border-radius: var(--radius-lg);
+            overflow: hidden;
+            box-shadow: var(--shadow-md);
+            border: 1px solid var(--border-light);
+            margin-bottom: var(--spacing-lg);
+        }
+
+        .table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        .table thead {
+            background: linear-gradient(135deg, var(--primary-dark), var(--primary));
+        }
+
+        .table th {
+            padding: 20px 24px;
+            text-align: left;
+            font-weight: 700;
+            color: white;
+            font-size: 0.9375rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        .table td {
+            padding: 20px 24px;
+            border-bottom: 1px solid var(--border-light);
+            font-size: 1rem;
+            color: var(--text-secondary);
+        }
+
+        .table tbody tr:last-child td {
+            border-bottom: none;
+        }
+
+        .table tbody tr {
+            transition: background-color 0.2s ease;
+        }
+
+        .table tbody tr:hover {
+            background-color: var(--bg-secondary);
+        }
+
+        /* =====================================================
+           TIMELINE - DESIGN SOPHISTIQUÉ
+        ===================================================== */
+        .timeline {
+            position: relative;
+            padding-left: 60px;
+            margin: var(--spacing-xl) 0;
+        }
+
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 20px;
+            top: 0;
+            bottom: 0;
+            width: 3px;
+            background: linear-gradient(180deg, var(--primary), var(--primary-light));
+        }
+
+        .timeline-item {
+            position: relative;
+            margin-bottom: var(--spacing-lg);
+            background: var(--bg-primary);
+            padding: var(--spacing-lg);
+            border-radius: var(--radius-md);
+            box-shadow: var(--shadow-sm);
+            border: 1px solid var(--border-light);
+        }
+
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: -49px;
+            top: 24px;
+            width: 18px;
+            height: 18px;
+            background: var(--primary);
+            border-radius: 50%;
+            border: 4px solid var(--bg-secondary);
+            box-shadow: 0 0 0 4px var(--primary-ultra-light);
+        }
+
+        .timeline-title {
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: var(--text-primary);
+            margin-bottom: var(--spacing-sm);
+        }
+
+        .timeline-description {
+            font-size: 1rem;
+            color: var(--text-secondary);
+            line-height: 1.7;
+        }
+
+        /* =====================================================
+           CONTACT CTA - DESIGN PREMIUM
+        ===================================================== */
+        .contact-cta {
+            background: linear-gradient(135deg, var(--primary-dark) 0%, var(--primary) 50%, var(--primary-light) 100%);
+            padding: var(--spacing-2xl);
+            border-radius: var(--radius-xl);
+            text-align: center;
+            margin-top: var(--spacing-2xl);
+            box-shadow: var(--shadow-2xl);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .contact-cta::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(255, 255, 255, 0.1) 0%, transparent 70%);
+            animation: pulse 8s ease-in-out infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); opacity: 0.5; }
+            50% { transform: scale(1.1); opacity: 0.8; }
+        }
+
+        .contact-cta-content {
+            position: relative;
+            z-index: 1;
+        }
+
+        .contact-cta-title {
+            font-size: clamp(1.75rem, 3vw, 2.25rem);
+            font-weight: 900;
+            color: white;
+            margin-bottom: var(--spacing-sm);
+        }
+
+        .contact-cta-subtitle {
+            font-size: 1.125rem;
+            color: rgba(255, 255, 255, 0.95);
+            margin-bottom: var(--spacing-xl);
+        }
+
+        .contact-buttons {
+            display: flex;
+            gap: var(--spacing-md);
             justify-content: center;
-            gap: 16px;
             flex-wrap: wrap;
         }
 
         .contact-btn {
             display: inline-flex;
             align-items: center;
-            gap: 10px;
+            gap: 12px;
             background: white;
             color: var(--primary-dark);
-            padding: 14px 28px;
+            padding: 16px 32px;
             border-radius: 50px;
             text-decoration: none;
-            font-weight: 600;
+            font-weight: 700;
             font-size: 1rem;
             transition: all 0.3s ease;
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
         }
 
         .contact-btn:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
-            color: var(--primary-dark);
-            text-decoration: none;
+            transform: translateY(-4px);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.3);
         }
 
         .contact-btn svg {
@@ -350,38 +547,9 @@
             height: 20px;
         }
 
-        /* ===== FOOTER LINKS ===== */
-        .footer-links {
-            text-align: center;
-            padding: 32px 24px;
-            color: var(--text-light);
-            font-size: 0.9375rem;
-        }
-
-        .footer-links a {
-            color: var(--primary-color);
-            text-decoration: none;
-            font-weight: 600;
-            transition: color 0.3s ease;
-        }
-
-        .footer-links a:hover {
-            color: var(--primary-dark);
-            text-decoration: underline;
-        }
-
-        /* ===== ANIMATIONS ===== */
-        @keyframes fadeInDown {
-            from {
-                opacity: 0;
-                transform: translateY(-30px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
+        /* =====================================================
+           ANIMATIONS
+        ===================================================== */
         @keyframes fadeInUp {
             from {
                 opacity: 0;
@@ -393,39 +561,44 @@
             }
         }
 
-        /* ===== RESPONSIVE ===== */
+        .animate-in {
+            animation: fadeInUp 0.6s ease-out backwards;
+        }
+
+        .animate-in-1 { animation-delay: 0.1s; }
+        .animate-in-2 { animation-delay: 0.2s; }
+        .animate-in-3 { animation-delay: 0.3s; }
+        .animate-in-4 { animation-delay: 0.4s; }
+
+        /* =====================================================
+           RESPONSIVE DESIGN
+        ===================================================== */
+        @media (max-width: 1024px) {
+            :root {
+                --spacing-3xl: 64px;
+                --spacing-2xl: 48px;
+            }
+
+            .cards-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
         @media (max-width: 768px) {
-            .delivery-page {
-                padding: 40px 20px;
+            :root {
+                --spacing-xl: 32px;
+                --spacing-lg: 24px;
             }
 
-            .content-section {
-                padding: 28px 20px;
+            .hero-section {
+                padding: var(--spacing-2xl) var(--spacing-md);
             }
 
-            .section-header {
-                flex-direction: column;
-                align-items: flex-start;
+            .card {
+                padding: var(--spacing-lg);
             }
 
-            .weight-table {
-                font-size: 0.875rem;
-            }
-
-            .weight-table th,
-            .weight-table td {
-                padding: 12px;
-            }
-
-            .contact-cta {
-                padding: 32px 24px;
-            }
-
-            .contact-cta h2 {
-                font-size: 1.5rem;
-            }
-
-            .contact-methods {
+            .contact-buttons {
                 flex-direction: column;
             }
 
@@ -433,327 +606,316 @@
                 width: 100%;
                 justify-content: center;
             }
+
+            .timeline {
+                padding-left: 40px;
+            }
         }
     </style>
 </head>
 <body>
-    <div class="delivery-page">
-        <!-- Header -->
-        <header class="page-header">
-            <div class="header-icon">
+    <!-- Hero Section -->
+    <section class="hero-section">
+        <div class="hero-content">
+            <div class="hero-icon">
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                     <path d="M9 17v-2m3 2v-4m3 4v-6m2 10H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/>
-                    <path d="M13 2v6a1 1 0 001 1h6"/>
                 </svg>
             </div>
-            <h1 class="page-title">Información de Entrega</h1>
-            <p class="page-subtitle">Todo lo que necesitas saber sobre nuestros envíos</p>
-            <span class="last-update">Última actualización: 31/10/2025</span>
-        </header>
-
-        <!-- Section 1: Ámbito -->
-        <section class="content-section">
-            <div class="section-header">
-                <div class="section-icon">
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                        <path d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/>
-                    </svg>
-                </div>
-                <h2 class="section-title">Ámbito de Entrega</h2>
+            <h1 class="hero-title">Información de Entrega</h1>
+            <p class="hero-subtitle">
+                Entregas profesionales en toda España con transportistas certificados.
+                Garantizamos la mejor experiencia de recepción para tus productos de calefacción y biomasa.
+            </p>
+            <div class="hero-badges">
+                <span class="badge">Entrega 2-5 días</span>
+                <span class="badge">Transportistas profesionales</span>
+                <span class="badge">Seguimiento en tiempo real</span>
             </div>
-            <div class="section-content">
-                <p>Realizamos envíos a toda <strong>España</strong>. Para productos voluminosos (palets), la entrega se realiza <strong>principalmente en Península</strong>.</p>
+        </div>
+    </section>
 
-                <div class="warning-box">
-                    <p><strong>⚠️ Atención zonas especiales:</strong> Para <strong>Baleares, Canarias, Ceuta y Melilla</strong> u otros países de la UE, por favor <strong>consúltanos disponibilidad y tarifas</strong> antes de realizar el pedido.</p>
+    <!-- Main Container -->
+    <div class="main-container">
+        <!-- Section: Ámbito de entrega -->
+        <section class="section animate-in animate-in-1">
+            <div class="section-header">
+                <h2 class="section-title">Ámbito de entrega</h2>
+                <p class="section-description">
+                    Realizamos entregas en toda la península española con transportistas especializados en productos de gran volumen y peso.
+                </p>
+            </div>
+
+            <div class="cards-grid">
+                <div class="card">
+                    <div class="card-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                        </svg>
+                    </div>
+                    <h3 class="card-title">Península Española</h3>
+                    <p class="card-description">
+                        Cobertura completa en toda la España peninsular con plazos garantizados de 2 a 5 días laborables.
+                    </p>
+                    <ul class="card-features">
+                        <li>Envíos a todas las provincias</li>
+                        <li>Entrega puerta a puerta</li>
+                        <li>Sin peso mínimo requerido</li>
+                    </ul>
+                </div>
+
+                <div class="card">
+                    <div class="card-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                        </svg>
+                    </div>
+                    <h3 class="card-title">Plazos de Entrega</h3>
+                    <p class="card-description">
+                        Entregas rápidas y fiables según la ubicación y disponibilidad del producto en stock.
+                    </p>
+                    <ul class="card-features">
+                        <li>Península: 2-5 días laborables</li>
+                        <li>Zonas remotas: 5-7 días laborables</li>
+                        <li>Notificación previa 24-48h antes</li>
+                    </ul>
+                </div>
+
+                <div class="card">
+                    <div class="card-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"/>
+                        </svg>
+                    </div>
+                    <h3 class="card-title">Zonas Especiales</h3>
+                    <p class="card-description">
+                        Algunas áreas requieren condiciones adicionales debido a restricciones de acceso o logística.
+                    </p>
+                    <ul class="card-features">
+                        <li>Alta montaña: consultar disponibilidad</li>
+                        <li>Islas: gastos adicionales</li>
+                        <li>Zonas peatonales: coordinación previa</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="info-box warning">
+                <div class="info-box-title">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"/>
+                    </svg>
+                    Importante: Verificación de acceso
+                </div>
+                <div class="info-box-content">
+                    <p>
+                        Antes de realizar el pedido, asegúrese de que el acceso permite la maniobra del vehículo de transporte.
+                        Nuestros camiones tienen las siguientes dimensiones: <strong>19 toneladas</strong>, <strong>11,4 m de largo</strong>,
+                        <strong>2,55 m de ancho</strong> y <strong>4 m de alto</strong>. Si tiene dudas sobre el acceso, contáctenos antes de realizar el pedido.
+                    </p>
                 </div>
             </div>
         </section>
 
-        <!-- Section 2: Gastos de Envío -->
-        <section class="content-section">
+        <!-- Section: Cálculo de gastos de envío -->
+        <section class="section animate-in animate-in-2">
             <div class="section-header">
-                <div class="section-icon">
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                        <path d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/>
-                    </svg>
-                </div>
-                <h2 class="section-title">Cálculo de Gastos de Envío</h2>
+                <h2 class="section-title">Cálculo de gastos de envío</h2>
+                <p class="section-description">
+                    Los gastos de envío se calculan automáticamente en función del peso total del pedido y la zona de entrega.
+                </p>
             </div>
-            <div class="section-content">
-                <p>Los <strong>gastos de envío</strong> se calculan automáticamente según el <strong>peso total</strong> del carrito y la <strong>dirección de entrega</strong>. El <strong>coste exacto</strong> se muestra <strong>antes de pagar</strong> en el checkout.</p>
 
-                <div class="highlight-box">
-                    <p>✓ Salvo indicación en contrario, los precios se muestran <strong>con IVA incluido</strong>.</p>
-                </div>
-
-                <h3 style="margin: 32px 0 16px; font-size: 1.25rem; font-weight: 700; color: var(--text-dark);">Bandas de Peso Orientativas</h3>
-
-                <table class="weight-table">
+            <div class="table-container">
+                <table class="table">
                     <thead>
                         <tr>
-                            <th>Peso Total</th>
-                            <th>Tipo de Servicio</th>
+                            <th>Peso del pedido</th>
+                            <th>Península</th>
+                            <th>Zonas especiales</th>
                         </tr>
                     </thead>
                     <tbody>
                         <tr>
-                            <td><span class="weight-badge">0–100 kg</span></td>
-                            <td>Servicio ligero</td>
+                            <td>0 - 100 kg</td>
+                            <td><strong>49 €</strong></td>
+                            <td>Consultar</td>
                         </tr>
                         <tr>
-                            <td><span class="weight-badge">101–500 kg</span></td>
-                            <td>Vehículo ligero con plataforma elevadora</td>
+                            <td>101 - 300 kg</td>
+                            <td><strong>79 €</strong></td>
+                            <td>Consultar</td>
                         </tr>
                         <tr>
-                            <td><span class="weight-badge">501–850 kg</span></td>
-                            <td>Vehículo ligero o camión 19 T (según acceso)</td>
+                            <td>301 - 600 kg</td>
+                            <td><strong>119 €</strong></td>
+                            <td>Consultar</td>
                         </tr>
                         <tr>
-                            <td><span class="weight-badge">> 1.000 kg</span></td>
-                            <td>Camión 19 T con plataforma elevadora</td>
+                            <td>601 - 1000 kg</td>
+                            <td><strong>159 €</strong></td>
+                            <td>Consultar</td>
+                        </tr>
+                        <tr>
+                            <td>Más de 1000 kg</td>
+                            <td><strong>Según tarifa</strong></td>
+                            <td>Según tarifa</td>
                         </tr>
                     </tbody>
                 </table>
             </div>
+
+            <div class="info-box info">
+                <div class="info-box-title">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                    </svg>
+                    Nota sobre los gastos de envío
+                </div>
+                <div class="info-box-content">
+                    <p>
+                        Los gastos de envío se muestran automáticamente en el carrito antes de finalizar la compra.
+                        Para pedidos de gran volumen o zonas especiales, nuestro equipo se pondrá en contacto para confirmar el importe exacto.
+                    </p>
+                </div>
+            </div>
         </section>
 
-        <!-- Section 3: Plazos -->
-        <section class="content-section">
+        <!-- Section: Preparación y entrega (Timeline) -->
+        <section class="section animate-in animate-in-3">
             <div class="section-header">
-                <div class="section-icon">
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                        <path d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/>
-                    </svg>
-                </div>
-                <h2 class="section-title">Plazos de Preparación y Entrega</h2>
+                <h2 class="section-title">Proceso de preparación y entrega</h2>
+                <p class="section-description">
+                    Desde que confirmas tu pedido hasta que recibes tus productos, seguimos un proceso riguroso para garantizar una entrega perfecta.
+                </p>
             </div>
-            <div class="section-content">
-                <div class="info-cards">
-                    <div class="info-card">
-                        <div class="info-card-icon">
-                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                <path d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2"/>
-                            </svg>
-                        </div>
-                        <h3>Preparación</h3>
-                        <p><strong>24–72 horas laborables</strong> desde la confirmación del pago</p>
+
+            <div class="timeline">
+                <div class="timeline-item">
+                    <h3 class="timeline-title">1. Confirmación del pedido</h3>
+                    <p class="timeline-description">
+                        Una vez realizado el pago, recibirás un email de confirmación con los detalles de tu pedido y un número de seguimiento.
+                        Nuestro equipo verifica la disponibilidad de todos los productos.
+                    </p>
+                </div>
+
+                <div class="timeline-item">
+                    <h3 class="timeline-title">2. Preparación en almacén</h3>
+                    <p class="timeline-description">
+                        Preparamos cuidadosamente tu pedido, verificando que cada producto esté en perfecto estado.
+                        El embalaje se realiza siguiendo estrictos protocolos de seguridad para productos pesados.
+                    </p>
+                </div>
+
+                <div class="timeline-item">
+                    <h3 class="timeline-title">3. Entrega al transportista</h3>
+                    <p class="timeline-description">
+                        Tu pedido se entrega a nuestro transportista certificado, equipado con plataforma elevadora y transpaleta.
+                        Recibirás un aviso 24-48h antes de la entrega con una ventana horaria.
+                    </p>
+                </div>
+
+                <div class="timeline-item">
+                    <h3 class="timeline-title">4. Recepción en destino</h3>
+                    <p class="timeline-description">
+                        El conductor descargará la mercancía a pie de calle con la plataforma elevadora.
+                        Es importante que verifiques el estado de los bultos y firmes el albarán.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section: Métodos y vehículos -->
+        <section class="section animate-in animate-in-4">
+            <div class="section-header">
+                <h2 class="section-title">Métodos de entrega y vehículos</h2>
+                <p class="section-description">
+                    Trabajamos con transportistas profesionales especializados en productos de gran volumen y peso.
+                </p>
+            </div>
+
+            <div class="cards-grid">
+                <div class="card">
+                    <div class="card-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M8 7v8a2 2 0 002 2h6M8 7V5a2 2 0 012-2h4.586a1 1 0 01.707.293l4.414 4.414a1 1 0 01.293.707V15a2 2 0 01-2 2h-2M8 7H6a2 2 0 00-2 2v10a2 2 0 002 2h8a2 2 0 002-2v-2"/>
+                        </svg>
                     </div>
-                    <div class="info-card">
-                        <div class="info-card-icon">
-                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                <path d="M13 16V6a1 1 0 00-1-1H4a1 1 0 00-1 1v10a1 1 0 001 1h1m8-1a1 1 0 01-1 1H9m4-1V8a1 1 0 011-1h2.586a1 1 0 01.707.293l3.414 3.414a1 1 0 01.293.707V16a1 1 0 01-1 1h-1m-6-1a1 1 0 001 1h1M5 17a2 2 0 104 0m-4 0a2 2 0 114 0m6 0a2 2 0 104 0m-4 0a2 2 0 114 0"/>
-                            </svg>
-                        </div>
-                        <h3>Tránsito</h3>
-                        <p>Aproximadamente <strong>2–5 días laborables</strong> según destino y peso</p>
+                    <h3 class="card-title">Camión con plataforma</h3>
+                    <p class="card-description">
+                        Vehículos de 19 toneladas equipados con plataforma elevadora y transpaleta para facilitar la descarga.
+                    </p>
+                    <ul class="card-features">
+                        <li>Descarga a nivel de calle</li>
+                        <li>Conductor con experiencia</li>
+                        <li>Seguro de mercancías incluido</li>
+                    </ul>
+                </div>
+
+                <div class="card">
+                    <div class="card-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"/>
+                        </svg>
                     </div>
-                    <div class="info-card">
-                        <div class="info-card-icon">
-                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                <path d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/>
-                            </svg>
-                        </div>
-                        <h3>Seguimiento</h3>
-                        <p>Te enviaremos <strong>confirmación por email</strong> cuando tu pedido salga de almacén con enlace de tracking si está disponible</p>
+                    <h3 class="card-title">Servicio sin manipulación interior</h3>
+                    <p class="card-description">
+                        La entrega se realiza en la salida de la plataforma elevadora, a pie de calle o portal.
+                    </p>
+                    <ul class="card-features">
+                        <li>No incluye subida a plantas</li>
+                        <li>No incluye instalación</li>
+                        <li>Responsabilidad del cliente después de la descarga</li>
+                    </ul>
+                </div>
+
+                <div class="card">
+                    <div class="card-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                        </svg>
                     </div>
+                    <h3 class="card-title">Verificación en el momento</h3>
+                    <p class="card-description">
+                        Es fundamental verificar el estado de la mercancía en presencia del conductor.
+                    </p>
+                    <ul class="card-features">
+                        <li>Comprueba el número de bultos</li>
+                        <li>Verifica que no hay daños visibles</li>
+                        <li>Anota cualquier incidencia en el albarán</li>
+                    </ul>
                 </div>
-            </div>
-        </section>
-
-        <!-- Section 4: Modalidades -->
-        <section class="content-section">
-            <div class="section-header">
-                <div class="section-icon">
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                        <path d="M5 8h14M5 8a2 2 0 110-4h14a2 2 0 110 4M5 8v10a2 2 0 002 2h10a2 2 0 002-2V8m-9 4h4"/>
-                    </svg>
-                </div>
-                <h2 class="section-title">Modalidades y Medios de Entrega</h2>
-            </div>
-            <div class="section-content">
-                <p>Entregamos mediante <strong>transportistas concertados</strong>, equipados con <strong>plataforma elevadora</strong> y <strong>transpaleta</strong>. Las entregas se realizan de <strong>lunes a viernes</strong> en una <strong>franja horaria</strong> acordada con el transportista.</p>
-
-                <ul>
-                    <li><strong>Hasta 500 kg:</strong> Vehículo ligero (PTAC 3,5 T) con plataforma</li>
-                    <li><strong>Hasta 850 kg:</strong> Vehículo ligero (3,5 T) o camión 19 T</li>
-                    <li><strong>> 1.000 kg:</strong> Camión <strong>19 T</strong> con plataforma elevadora</li>
-                </ul>
-            </div>
-        </section>
-
-        <!-- Section 5: Condiciones de Acceso -->
-        <section class="content-section">
-            <div class="section-header">
-                <div class="section-icon">
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                        <path d="M9 20l-5.447-2.724A1 1 0 013 16.382V5.618a1 1 0 011.447-.894L9 7m0 13l6-3m-6 3V7m6 10l4.553 2.276A1 1 0 0021 18.382V7.618a1 1 0 00-.553-.894L15 4m0 13V4m0 0L9 7"/>
-                    </svg>
-                </div>
-                <h2 class="section-title">Condiciones de Acceso y Punto de Descarga</h2>
-            </div>
-            <div class="section-content">
-                <p>La vía de acceso debe permitir la maniobra del vehículo asignado (anchura/altura/tonelaje). La <strong>descarga</strong> se realiza en la <strong>salida de la plataforma elevadora</strong>, a pie de calle y fuera de la propiedad.</p>
-
-                <div class="highlight-box">
-                    <p><strong>Importante:</strong> No se incluye el <strong>traslado interior</strong>, la <strong>subida a plantas</strong> ni el <strong>almacenamiento manual</strong>.</p>
-                </div>
-
-                <h3 style="margin: 32px 0 16px; font-size: 1.25rem; font-weight: 700; color: var(--text-dark);">⚠️ Accesos Difíciles (ejemplos)</h3>
-                <ul>
-                    <li>Calles sin salida o muy estrechas</li>
-                    <li>Centros históricos o zonas peatonales</li>
-                    <li>Pendientes pronunciadas</li>
-                    <li>Restricciones de tonelaje o altura</li>
-                    <li>Caminos de tierra, barro o nieve</li>
-                    <li>Zonas de alta montaña (> 600 m)</li>
-                </ul>
-
-                <div class="warning-box">
-                    <p><strong>💡 Consejo:</strong> En caso de duda, <strong>contáctanos antes de comprar</strong> para evitar incidencias o costes adicionales.</p>
-                </div>
-            </div>
-        </section>
-
-        <!-- Section 6: Cita de Entrega -->
-        <section class="content-section">
-            <div class="section-header">
-                <div class="section-icon">
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                        <path d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"/>
-                    </svg>
-                </div>
-                <h2 class="section-title">Cita de Entrega y Segunda Presentación</h2>
-            </div>
-            <div class="section-content">
-                <ul>
-                    <li>El transportista <strong>contactará</strong> para acordar una franja horaria (p. ej. 8:00–14:00)</li>
-                    <li>Si no es posible entregar en la cita, podrá programarse una <strong>segunda entrega</strong> a solicitud del cliente con <strong>coste adicional</strong></li>
-                    <li>En caso de no aceptación, el pedido podrá volver a nuestro depósito y se realizará un <strong>reembolso del importe menos los gastos de transporte</strong> de ida y, si aplica, de retorno</li>
-                </ul>
-            </div>
-        </section>
-
-        <!-- Section 7: Recepción -->
-        <section class="content-section">
-            <div class="section-header">
-                <div class="section-icon">
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                        <path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
-                    </svg>
-                </div>
-                <h2 class="section-title">Recepción, Verificación e Incidencias</h2>
-            </div>
-            <div class="section-content">
-                <div class="info-cards">
-                    <div class="info-card">
-                        <div class="info-card-icon">
-                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                <path d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"/>
-                                <path d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"/>
-                            </svg>
-                        </div>
-                        <h3>1. Verificar</h3>
-                        <p>A la recepción, verifica bultos y estado delante del conductor</p>
-                    </div>
-                    <div class="info-card">
-                        <div class="info-card-icon">
-                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                <path d="M3 9a2 2 0 012-2h.93a2 2 0 001.664-.89l.812-1.22A2 2 0 0110.07 4h3.86a2 2 0 011.664.89l.812 1.22A2 2 0 0018.07 7H19a2 2 0 012 2v9a2 2 0 01-2 2H5a2 2 0 01-2-2V9z"/>
-                                <path d="M15 13a3 3 0 11-6 0 3 3 0 016 0z"/>
-                            </svg>
-                        </div>
-                        <h3>2. Documentar</h3>
-                        <p>Si detectas daño, anótalo en el albarán y realiza fotos del daño/embalaje</p>
-                    </div>
-                    <div class="info-card">
-                        <div class="info-card-icon">
-                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                <path d="M12 8v4m0 4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/>
-                            </svg>
-                        </div>
-                        <h3>3. Reportar</h3>
-                        <p>Comunícanos la incidencia en un máximo de 48 horas desde la entrega</p>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Section 8: Cancelaciones -->
-        <section class="content-section">
-            <div class="section-header">
-                <div class="section-icon">
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                        <path d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15"/>
-                    </svg>
-                </div>
-                <h2 class="section-title">Cancelaciones y Cambios</h2>
-            </div>
-            <div class="section-content">
-                <ul>
-                    <li><strong>Antes del envío:</strong> Cancelación sin penalización de transporte</li>
-                    <li><strong>Después del envío</strong> o en <strong>entrega fallida:</strong> Reembolso <strong>menos los gastos de transporte</strong> (y, si procede, costes de retorno/almacenaje del transportista)</li>
-                    <li><strong>Cambio de dirección</strong> tras la expedición: Puede conllevar <strong>coste adicional</strong> y <strong>retraso</strong> del plazo de entrega</li>
-                </ul>
-            </div>
-        </section>
-
-        <!-- Section 9: Derecho de Desistimiento -->
-        <section class="content-section">
-            <div class="section-header">
-                <div class="section-icon">
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                        <path d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/>
-                    </svg>
-                </div>
-                <h2 class="section-title">Derecho de Desistimiento y Devoluciones</h2>
-            </div>
-            <div class="section-content">
-                <p>Dispones de <strong>15 días naturales</strong> desde la entrega para ejercer el <strong>derecho de desistimiento</strong> (según nuestras <a href="/condiciones-generales-de-venta" style="color: var(--primary-color); font-weight: 600;">Condiciones Generales de Venta</a>).</p>
-
-                <div class="highlight-box">
-                    <p><strong>Requisitos:</strong> Los artículos deben devolverse en perfecto estado y con su embalaje original.</p>
-                </div>
-
-                <p>Salvo producto defectuoso o error nuestro, los <strong>gastos de devolución</strong> corren a cargo del cliente. El <strong>reembolso</strong> se realizará según el método y plazos indicados en las Condiciones.</p>
             </div>
         </section>
 
         <!-- Contact CTA -->
-        <div class="contact-cta">
-            <h2>¿Tienes dudas sobre tu entrega?</h2>
-            <p>Nuestro equipo está aquí para ayudarte antes de que realices tu compra</p>
-            <div class="contact-methods">
-                <a href="mailto:contacto@grupoecocorum.es" class="contact-btn">
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                        <path d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/>
-                    </svg>
-                    <span>Email</span>
-                </a>
-                <a href="https://wa.me/34686781490" target="_blank" rel="noopener" class="contact-btn">
-                    <svg viewBox="0 0 24 24" fill="currentColor">
-                        <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/>
-                    </svg>
-                    <span>WhatsApp</span>
-                </a>
-                <a href="tel:+34663166160" class="contact-btn">
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                        <path d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"/>
-                    </svg>
-                    <span>Teléfono</span>
-                </a>
+        <section class="contact-cta">
+            <div class="contact-cta-content">
+                <h2 class="contact-cta-title">¿Necesitas ayuda con tu entrega?</h2>
+                <p class="contact-cta-subtitle">
+                    Nuestro equipo de atención al cliente está disponible para resolver cualquier duda sobre tu pedido
+                </p>
+                <div class="contact-buttons">
+                    <a href="mailto:contacto@grupoecocorum.es" class="contact-btn">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/>
+                        </svg>
+                        <span>Email</span>
+                    </a>
+                    <a href="https://wa.me/34686781490" target="_blank" rel="noopener" class="contact-btn">
+                        <svg viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/>
+                        </svg>
+                        <span>WhatsApp</span>
+                    </a>
+                    <a href="tel:+34663166160" class="contact-btn">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"/>
+                        </svg>
+                        <span>+34 663 16 61 60</span>
+                    </a>
+                </div>
             </div>
-        </div>
-
-        <!-- Footer Links -->
-        <div class="footer-links">
-            <p>
-                Consulta también:
-                <a href="/pagos-seguros/">Pagos seguros</a> ·
-                <a href="/politica-de-privacidad/">Política de privacidad</a> ·
-                <a href="/condiciones-generales-de-venta/">Condiciones generales de venta</a>
-            </p>
-        </div>
+        </section>
     </div>
 </body>
 </html>
