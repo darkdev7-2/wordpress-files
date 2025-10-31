@@ -1,0 +1,456 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contacto - Grupo Ecocorum</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <style>
+        :root {
+            --primary-color: #438e44;
+            --primary-dark: #357035;
+            --primary-light: #5aa85b;
+            --text-dark: #1a1a1a;
+            --text-medium: #4a4a4a;
+            --text-light: #6b7280;
+            --bg-light: #f9fafb;
+            --white: #ffffff;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: var(--bg-light);
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+            padding: 20px;
+        }
+
+        /* ===== SECTION CONTACT ===== */
+        .contact-section {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: var(--white);
+            border-radius: 24px;
+            overflow: hidden;
+            box-shadow: 0 10px 40px rgba(67, 142, 68, 0.08);
+            position: relative;
+        }
+
+        .contact-wrapper {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            align-items: center;
+            gap: 0;
+            min-height: 500px;
+        }
+
+        /* ===== COLONNE GAUCHE - CONTENU ===== */
+        .contact-content {
+            padding: 80px 60px;
+            position: relative;
+            z-index: 2;
+        }
+
+        .contact-tag {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: linear-gradient(135deg, rgba(67, 142, 68, 0.1), rgba(90, 168, 91, 0.15));
+            color: var(--primary-color);
+            padding: 8px 20px;
+            border-radius: 50px;
+            font-size: 0.875rem;
+            font-weight: 700;
+            letter-spacing: 0.5px;
+            margin-bottom: 24px;
+            animation: fadeInUp 0.6s ease-out;
+        }
+
+        .contact-title {
+            font-size: clamp(2rem, 4vw, 3rem);
+            font-weight: 800;
+            color: var(--text-dark);
+            line-height: 1.2;
+            margin-bottom: 20px;
+            animation: fadeInUp 0.6s ease-out 0.1s backwards;
+        }
+
+        .contact-title .highlight {
+            background: linear-gradient(135deg, var(--primary-color), var(--primary-light));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .contact-description {
+            font-size: 1.125rem;
+            color: var(--text-medium);
+            line-height: 1.7;
+            margin-bottom: 32px;
+            animation: fadeInUp 0.6s ease-out 0.2s backwards;
+        }
+
+        /* Liste des avantages */
+        .contact-benefits {
+            list-style: none;
+            margin-bottom: 40px;
+            animation: fadeInUp 0.6s ease-out 0.3s backwards;
+        }
+
+        .contact-benefits li {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            font-size: 1rem;
+            color: var(--text-medium);
+            margin-bottom: 16px;
+            font-weight: 500;
+        }
+
+        .contact-benefits li::before {
+            content: '';
+            display: block;
+            width: 24px;
+            height: 24px;
+            background: linear-gradient(135deg, var(--primary-color), var(--primary-light));
+            border-radius: 50%;
+            flex-shrink: 0;
+            position: relative;
+        }
+
+        .contact-benefits li::after {
+            content: '✓';
+            position: absolute;
+            color: white;
+            font-weight: 700;
+            font-size: 0.875rem;
+            left: 68px;
+            margin-top: 2px;
+        }
+
+        /* Bouton CTA */
+        .contact-cta {
+            display: inline-flex;
+            align-items: center;
+            gap: 12px;
+            background: linear-gradient(135deg, var(--primary-color), var(--primary-light));
+            color: var(--white);
+            padding: 20px 48px;
+            border-radius: 50px;
+            font-size: 1.125rem;
+            font-weight: 700;
+            text-decoration: none;
+            box-shadow: 0 12px 40px rgba(67, 142, 68, 0.25);
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            animation: fadeInUp 0.6s ease-out 0.4s backwards;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .contact-cta::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, var(--primary-light), var(--primary-color));
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .contact-cta:hover::before {
+            opacity: 1;
+        }
+
+        .contact-cta span,
+        .contact-cta svg {
+            position: relative;
+            z-index: 1;
+        }
+
+        .contact-cta:hover {
+            transform: translateY(-4px) scale(1.02);
+            box-shadow: 0 20px 60px rgba(67, 142, 68, 0.35);
+        }
+
+        .contact-cta svg {
+            transition: transform 0.3s ease;
+        }
+
+        .contact-cta:hover svg {
+            transform: translateX(4px);
+        }
+
+        /* Info supplémentaire */
+        .contact-info {
+            margin-top: 24px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 0.9375rem;
+            color: var(--text-light);
+            animation: fadeInUp 0.6s ease-out 0.5s backwards;
+        }
+
+        .contact-info svg {
+            color: var(--primary-color);
+        }
+
+        /* ===== COLONNE DROITE - VISUEL ===== */
+        .contact-visual {
+            position: relative;
+            height: 100%;
+            min-height: 500px;
+            background: linear-gradient(135deg, var(--primary-dark) 0%, var(--primary-color) 50%, var(--primary-light) 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+        }
+
+        /* Icônes décoratives */
+        .contact-icons {
+            position: relative;
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 32px;
+            padding: 60px;
+            animation: fadeIn 0.8s ease-out 0.3s backwards;
+        }
+
+        .icon-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            background: rgba(255, 255, 255, 0.15);
+            backdrop-filter: blur(10px);
+            border: 2px solid rgba(255, 255, 255, 0.25);
+            border-radius: 20px;
+            padding: 32px 24px;
+            transition: all 0.3s ease;
+        }
+
+        .icon-item:hover {
+            transform: translateY(-8px);
+            background: rgba(255, 255, 255, 0.2);
+            box-shadow: 0 12px 40px rgba(0, 0, 0, 0.2);
+        }
+
+        .icon-item svg {
+            width: 48px;
+            height: 48px;
+            color: white;
+            margin-bottom: 16px;
+            filter: drop-shadow(0 4px 12px rgba(0, 0, 0, 0.2));
+        }
+
+        .icon-item span {
+            font-size: 0.9375rem;
+            font-weight: 600;
+            color: white;
+            text-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        /* Motifs décoratifs */
+        .contact-visual::before {
+            content: '';
+            position: absolute;
+            top: -30%;
+            right: -20%;
+            width: 500px;
+            height: 500px;
+            background: radial-gradient(circle, rgba(255, 255, 255, 0.1) 0%, transparent 70%);
+            border-radius: 50%;
+            animation: float 8s ease-in-out infinite;
+        }
+
+        .contact-visual::after {
+            content: '';
+            position: absolute;
+            bottom: -40%;
+            left: -20%;
+            width: 400px;
+            height: 400px;
+            background: radial-gradient(circle, rgba(255, 255, 255, 0.08) 0%, transparent 70%);
+            border-radius: 50%;
+            animation: float 10s ease-in-out infinite reverse;
+        }
+
+        /* ===== ANIMATIONS ===== */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0px) scale(1); }
+            50% { transform: translateY(-20px) scale(1.05); }
+        }
+
+        /* ===== RESPONSIVE ===== */
+        @media (max-width: 968px) {
+            .contact-wrapper {
+                grid-template-columns: 1fr;
+            }
+
+            .contact-content {
+                padding: 60px 40px;
+            }
+
+            .contact-visual {
+                min-height: 400px;
+            }
+
+            .contact-icons {
+                padding: 40px;
+                gap: 20px;
+            }
+
+            .icon-item {
+                padding: 24px 20px;
+            }
+
+            .icon-item svg {
+                width: 40px;
+                height: 40px;
+            }
+        }
+
+        @media (max-width: 640px) {
+            .contact-content {
+                padding: 40px 24px;
+            }
+
+            .contact-cta {
+                padding: 16px 32px;
+                font-size: 1rem;
+                width: 100%;
+                justify-content: center;
+            }
+
+            .contact-benefits li {
+                font-size: 0.9375rem;
+            }
+
+            .contact-icons {
+                gap: 16px;
+                padding: 32px 24px;
+            }
+
+            .icon-item {
+                padding: 20px 16px;
+            }
+
+            .icon-item svg {
+                width: 36px;
+                height: 36px;
+                margin-bottom: 12px;
+            }
+
+            .icon-item span {
+                font-size: 0.875rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <section class="contact-section">
+        <div class="contact-wrapper">
+            <!-- Colonne gauche - Contenu -->
+            <div class="contact-content">
+                <div class="contact-tag">
+                    <span>💬</span>
+                    <span>ESTAMOS AQUÍ PARA TI</span>
+                </div>
+
+                <h2 class="contact-title">
+                    ¿Tienes dudas? <span class="highlight">Hablemos</span>
+                </h2>
+
+                <p class="contact-description">
+                    Nuestro equipo de expertos está listo para ayudarte a encontrar la mejor solución de calefacción para tu hogar. Te asesoramos sin compromiso.
+                </p>
+
+                <ul class="contact-benefits">
+                    <li>Asesoramiento personalizado gratuito</li>
+                    <li>Respuesta en menos de 24 horas</li>
+                    <li>Presupuesto sin compromiso</li>
+                    <li>Más de 15 años de experiencia</li>
+                </ul>
+
+                <a href="https://grupoecocorum.es/contacto/" class="contact-cta">
+                    <span>Contactar ahora</span>
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                        <path d="M5 12h14M12 5l7 7-7 7"/>
+                    </svg>
+                </a>
+
+                <div class="contact-info">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/>
+                    </svg>
+                    <span>Te respondemos rápido. ¡Pruébalo!</span>
+                </div>
+            </div>
+
+            <!-- Colonne droite - Visuel -->
+            <div class="contact-visual">
+                <div class="contact-icons">
+                    <div class="icon-item">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/>
+                        </svg>
+                        <span>Email</span>
+                    </div>
+                    <div class="icon-item">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"/>
+                        </svg>
+                        <span>Teléfono</span>
+                    </div>
+                    <div class="icon-item">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/>
+                            <path d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/>
+                        </svg>
+                        <span>Ubicación</span>
+                    </div>
+                    <div class="icon-item">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                        </svg>
+                        <span>Horario</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</body>
+</html>
