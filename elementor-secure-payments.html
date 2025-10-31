@@ -1,0 +1,554 @@
+<!--
+╔══════════════════════════════════════════════════════════════════════╗
+║  INSTRUCCIONES DE INTEGRACIÓN EN ELEMENTOR                          ║
+╠══════════════════════════════════════════════════════════════════════╣
+║  1. Edita tu página en Elementor                                     ║
+║  2. Arrastra el widget "HTML" donde quieras esta sección             ║
+║  3. Copia TODO este código y pégalo en el widget HTML                ║
+║  4. Publica la página                                                ║
+║                                                                      ║
+║  ✓ Responsive                                                        ║
+║  ✓ Animations                                                        ║
+║  ✓ Professional design                                               ║
+║  ✓ Prefixed CSS to prevent conflicts                                 ║
+╚══════════════════════════════════════════════════════════════════════╝
+-->
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+<style>
+    .eco-payments {
+        --eco-primary: #438e44;
+        --eco-primary-dark: #357035;
+        --eco-primary-light: #5aa85b;
+        --eco-accent-blue: #3b82f6;
+        --eco-text-dark: #1a1a1a;
+        --eco-text-medium: #4a4a4a;
+        --eco-text-light: #6b7280;
+        --eco-bg-light: #f9fafb;
+        --eco-white: #ffffff;
+        --eco-border: #e5e7eb;
+    }
+
+    .eco-payments {
+        font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+        background: var(--eco-bg-light);
+        color: var(--eco-text-medium);
+        line-height: 1.7;
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+        padding: 60px 0;
+    }
+
+    .eco-payments * {
+        box-sizing: border-box;
+    }
+
+    /* ===== HEADER ===== */
+    .eco-payments .eco-page-header {
+        text-align: center;
+        margin-bottom: 60px;
+        animation: eco-fadeInDown 0.8s ease-out;
+    }
+
+    .eco-payments .eco-header-icon {
+        width: 80px;
+        height: 80px;
+        background: linear-gradient(135deg, var(--eco-primary), var(--eco-primary-light));
+        border-radius: 20px;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        margin-bottom: 24px;
+        box-shadow: 0 10px 30px rgba(67, 142, 68, 0.2);
+    }
+
+    .eco-payments .eco-header-icon svg {
+        width: 40px;
+        height: 40px;
+        color: white;
+    }
+
+    .eco-payments .eco-page-title {
+        font-size: clamp(2rem, 5vw, 3rem);
+        font-weight: 800;
+        color: var(--eco-text-dark);
+        margin-bottom: 16px;
+        line-height: 1.2;
+    }
+
+    .eco-payments .eco-page-subtitle {
+        font-size: 1.125rem;
+        color: var(--eco-text-light);
+        max-width: 700px;
+        margin: 0 auto;
+        line-height: 1.6;
+    }
+
+    /* ===== PAYMENT CARDS GRID ===== */
+    .eco-payments .eco-payments-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+        gap: 32px;
+        margin-bottom: 48px;
+    }
+
+    .eco-payments .eco-payment-card {
+        background: var(--eco-white);
+        border-radius: 16px;
+        padding: 40px;
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+        border: 1px solid var(--eco-border);
+        transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        animation: eco-fadeInUp 0.6s ease-out backwards;
+    }
+
+    .eco-payments .eco-payment-card:nth-child(1) { animation-delay: 0.1s; }
+    .eco-payments .eco-payment-card:nth-child(2) { animation-delay: 0.2s; }
+    .eco-payments .eco-payment-card:nth-child(3) { animation-delay: 0.3s; }
+    .eco-payments .eco-payment-card:nth-child(4) { animation-delay: 0.4s; }
+
+    .eco-payments .eco-payment-card:hover {
+        transform: translateY(-8px);
+        box-shadow: 0 12px 32px rgba(67, 142, 68, 0.15);
+        border-color: var(--eco-primary-light);
+    }
+
+    .eco-payments .eco-card-header {
+        display: flex;
+        align-items: center;
+        gap: 16px;
+        margin-bottom: 24px;
+    }
+
+    .eco-payments .eco-card-icon {
+        width: 56px;
+        height: 56px;
+        background: linear-gradient(135deg, rgba(67, 142, 68, 0.1), rgba(90, 168, 91, 0.15));
+        border-radius: 14px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-shrink: 0;
+    }
+
+    .eco-payments .eco-card-icon svg {
+        width: 28px;
+        height: 28px;
+        color: var(--eco-primary);
+    }
+
+    .eco-payments .eco-card-title {
+        font-size: 1.375rem;
+        font-weight: 700;
+        color: var(--eco-text-dark);
+        line-height: 1.3;
+    }
+
+    .eco-payments .eco-card-content {
+        color: var(--eco-text-medium);
+        font-size: 1rem;
+        line-height: 1.7;
+    }
+
+    .eco-payments .eco-card-content p {
+        margin-bottom: 16px;
+    }
+
+    .eco-payments .eco-card-content ul {
+        margin: 16px 0;
+        padding-left: 24px;
+    }
+
+    .eco-payments .eco-card-content li {
+        margin-bottom: 12px;
+    }
+
+    .eco-payments .eco-card-content li::marker {
+        color: var(--eco-primary);
+    }
+
+    .eco-payments .eco-card-content strong {
+        color: var(--eco-text-dark);
+        font-weight: 600;
+    }
+
+    /* ===== PAYMENT METHODS ICONS ===== */
+    .eco-payments .eco-payment-methods {
+        display: flex;
+        gap: 12px;
+        align-items: center;
+        flex-wrap: wrap;
+        margin: 16px 0 24px;
+        padding: 16px;
+        background: var(--eco-bg-light);
+        border-radius: 12px;
+    }
+
+    .eco-payments .eco-payment-method-badge {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        background: white;
+        padding: 8px 16px;
+        border-radius: 8px;
+        border: 1px solid var(--eco-border);
+        font-size: 0.875rem;
+        font-weight: 600;
+        color: var(--eco-text-dark);
+    }
+
+    /* ===== INFO BOXES ===== */
+    .eco-payments .eco-bank-info {
+        background: linear-gradient(135deg, rgba(67, 142, 68, 0.05), rgba(90, 168, 91, 0.08));
+        border: 1px solid rgba(67, 142, 68, 0.2);
+        border-radius: 12px;
+        padding: 24px;
+        margin: 20px 0;
+    }
+
+    .eco-payments .eco-bank-info p {
+        margin: 0;
+        line-height: 1.8;
+    }
+
+    .eco-payments .eco-bank-info strong {
+        color: var(--eco-primary-dark);
+    }
+
+    .eco-payments .eco-note-box {
+        background: linear-gradient(135deg, rgba(59, 130, 246, 0.05), rgba(96, 165, 250, 0.08));
+        border-left: 4px solid var(--eco-accent-blue);
+        padding: 20px 24px;
+        border-radius: 8px;
+        margin: 20px 0;
+    }
+
+    .eco-payments .eco-note-box p {
+        margin: 0;
+        color: var(--eco-text-dark);
+    }
+
+    .eco-payments .eco-warning-box {
+        background: linear-gradient(135deg, rgba(245, 158, 11, 0.05), rgba(251, 191, 36, 0.08));
+        border-left: 4px solid #f59e0b;
+        padding: 20px 24px;
+        border-radius: 8px;
+        margin: 20px 0;
+    }
+
+    .eco-payments .eco-success-box {
+        background: linear-gradient(135deg, rgba(67, 142, 68, 0.08), rgba(90, 168, 91, 0.12));
+        border-left: 4px solid var(--eco-primary);
+        padding: 20px 24px;
+        border-radius: 8px;
+        margin: 20px 0;
+    }
+
+    /* ===== CONTACT CTA ===== */
+    .eco-payments .eco-contact-cta {
+        background: linear-gradient(135deg, var(--eco-primary-dark), var(--eco-primary));
+        padding: 48px;
+        border-radius: 16px;
+        text-align: center;
+        margin-top: 48px;
+        color: white;
+        animation: eco-fadeInUp 0.8s ease-out 0.5s backwards;
+    }
+
+    .eco-payments .eco-contact-cta h2 {
+        font-size: 1.875rem;
+        font-weight: 800;
+        margin-bottom: 16px;
+    }
+
+    .eco-payments .eco-contact-cta > p {
+        font-size: 1.125rem;
+        margin-bottom: 32px;
+        opacity: 0.95;
+    }
+
+    .eco-payments .eco-contact-methods {
+        display: flex;
+        justify-content: center;
+        gap: 16px;
+        flex-wrap: wrap;
+    }
+
+    .eco-payments .eco-contact-btn {
+        display: inline-flex;
+        align-items: center;
+        gap: 10px;
+        background: white;
+        color: var(--eco-primary-dark);
+        padding: 14px 28px;
+        border-radius: 50px;
+        text-decoration: none;
+        font-weight: 600;
+        font-size: 1rem;
+        transition: all 0.3s ease;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    }
+
+    .eco-payments .eco-contact-btn:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+        color: var(--eco-primary-dark);
+        text-decoration: none;
+    }
+
+    .eco-payments .eco-contact-btn svg {
+        width: 20px;
+        height: 20px;
+    }
+
+    /* ===== FOOTER LINKS ===== */
+    .eco-payments .eco-footer-links {
+        text-align: center;
+        padding: 32px 24px;
+        color: var(--eco-text-light);
+        font-size: 0.9375rem;
+    }
+
+    .eco-payments .eco-footer-links a {
+        color: var(--eco-primary);
+        text-decoration: none;
+        font-weight: 600;
+        transition: color 0.3s ease;
+    }
+
+    .eco-payments .eco-footer-links a:hover {
+        color: var(--eco-primary-dark);
+        text-decoration: underline;
+    }
+
+    /* ===== ANIMATIONS ===== */
+    @keyframes eco-fadeInDown {
+        from {
+            opacity: 0;
+            transform: translateY(-30px);
+        }
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+
+    @keyframes eco-fadeInUp {
+        from {
+            opacity: 0;
+            transform: translateY(30px);
+        }
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+
+    /* ===== RESPONSIVE ===== */
+    @media (max-width: 768px) {
+        .eco-payments {
+            padding: 40px 0;
+        }
+
+        .eco-payments .eco-payment-card {
+            padding: 28px 20px;
+        }
+
+        .eco-payments .eco-payments-grid {
+            grid-template-columns: 1fr;
+            gap: 24px;
+        }
+
+        .eco-payments .eco-contact-cta {
+            padding: 32px 24px;
+        }
+
+        .eco-payments .eco-contact-cta h2 {
+            font-size: 1.5rem;
+        }
+
+        .eco-payments .eco-contact-methods {
+            flex-direction: column;
+        }
+
+        .eco-payments .eco-contact-btn {
+            width: 100%;
+            justify-content: center;
+        }
+    }
+</style>
+
+<div class="eco-payments">
+    <!-- Header -->
+    <header class="eco-page-header">
+        <div class="eco-header-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"/>
+            </svg>
+        </div>
+        <h1 class="eco-page-title">Pagos Seguros</h1>
+        <p class="eco-page-subtitle">Aceptamos <strong>tarjeta de crédito/débito</strong> y <strong>transferencia bancaria</strong>. Todos los pagos se procesan en <strong>EUR</strong> bajo conexión <strong>HTTPS (TLS/SSL)</strong>.</p>
+    </header>
+
+    <!-- Payment Methods Grid -->
+    <div class="eco-payments-grid">
+        <!-- 1. Tarjeta -->
+        <article class="eco-payment-card">
+            <div class="eco-card-header">
+                <div class="eco-card-icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M3 10h18M7 15h1m4 0h1m-7 4h12a3 3 0 003-3V8a3 3 0 00-3-3H6a3 3 0 00-3 3v8a3 3 0 003 3z"/>
+                    </svg>
+                </div>
+                <h2 class="eco-card-title">Pago con tarjeta</h2>
+            </div>
+            <div class="eco-card-content">
+                <div class="eco-payment-methods">
+                    <span class="eco-payment-method-badge">💳 Visa</span>
+                    <span class="eco-payment-method-badge">💳 Mastercard</span>
+                    <span class="eco-payment-method-badge">💳 Maestro</span>
+                </div>
+
+                <ul>
+                    <li>Procesamos el pago a través de una <strong>pasarela segura certificada PCI DSS</strong></li>
+                    <li>Conexión cifrada (<strong>HTTPS/TLS</strong>). <strong>No almacenamos</strong> los datos completos de tu tarjeta</li>
+                    <li>Por normativa europea (PSD2), tu banco puede solicitar <strong>Autenticación Reforzada (3-D Secure 2)</strong></li>
+                    <li>El cargo se realiza <strong>en el momento de confirmar el pedido</strong></li>
+                    <li>No aplicamos comisiones por pagar con tarjeta</li>
+                </ul>
+
+                <div class="eco-success-box">
+                    <p><strong>✓ Confirmación inmediata:</strong> Recibirás un correo con los detalles del pedido tras el pago correcto</p>
+                </div>
+
+                <div class="eco-warning-box">
+                    <p><strong>⚠️ ¿Ha fallado el pago?</strong> Prueba de nuevo o contáctanos para cambiar el método a transferencia bancaria</p>
+                </div>
+            </div>
+        </article>
+
+        <!-- 2. Transferencia -->
+        <article class="eco-payment-card">
+            <div class="eco-card-header">
+                <div class="eco-card-icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M8 7h12m0 0l-4-4m4 4l-4 4m0 6H4m0 0l4 4m-4-4l4-4"/>
+                    </svg>
+                </div>
+                <h2 class="eco-card-title">Transferencia bancaria (SEPA)</h2>
+            </div>
+            <div class="eco-card-content">
+                <p>Si eliges transferencia bancaria, prepara la orden desde tu banco e indica siempre el <strong>concepto</strong> con tu número de pedido.</p>
+
+                <div class="eco-bank-info">
+                    <p>
+                        <strong>Beneficiario:</strong> Ecoservicios y Biomateriales S.L. (Grupo Ecocorum)<br>
+                        <strong>Banco:</strong> [Nombre del banco]<br>
+                        <strong>IBAN:</strong> ES<span style="opacity: 0.6">XX XXXX XXXX XX XX XXXX XXXX</span><br>
+                        <strong>BIC/SWIFT:</strong> <span style="opacity: 0.6">XXXXXXXX</span><br>
+                        <strong>Concepto:</strong> Pedido #{order_number}
+                    </p>
+                </div>
+
+                <ul>
+                    <li><strong>Plazo de recepción:</strong> 24–72 horas laborables según entidades</li>
+                    <li>Empezaremos la preparación cuando el <strong>importe llegue a nuestra cuenta</strong></li>
+                    <li><strong>Reserva de stock:</strong> mantenemos la reserva durante <strong>48 horas</strong></li>
+                    <li>No aplicamos recargos por transferencia</li>
+                </ul>
+
+                <div class="eco-note-box">
+                    <p><strong>💡 Acelera la validación:</strong> Envía el justificante a <a href="mailto:contacto@grupoecocorum.es" style="color: var(--eco-accent-blue); font-weight: 600;">contacto@grupoecocorum.es</a></p>
+                </div>
+            </div>
+        </article>
+
+        <!-- 3. Seguridad -->
+        <article class="eco-payment-card">
+            <div class="eco-card-header">
+                <div class="eco-card-icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/>
+                    </svg>
+                </div>
+                <h2 class="eco-card-title">Sistema de pago seguro</h2>
+            </div>
+            <div class="eco-card-content">
+                <ul>
+                    <li>Conexión <strong>HTTPS</strong> en todo el sitio y en el checkout</li>
+                    <li>Pasarela con cumplimiento <strong>PCI DSS</strong> y herramientas antifraude</li>
+                    <li>Validaciones adicionales en pedidos sospechosos (verificación de identidad o de titularidad)</li>
+                    <li>No vendemos ni compartimos datos de pago con terceros ajenos a la transacción</li>
+                </ul>
+
+                <div class="eco-success-box">
+                    <p><strong>🔒 Certificación SSL/TLS:</strong> Tus datos están protegidos con cifrado de nivel bancario</p>
+                </div>
+            </div>
+        </article>
+
+        <!-- 4. Ayuda -->
+        <article class="eco-payment-card">
+            <div class="eco-card-header">
+                <div class="eco-card-icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M18.364 5.636l-3.536 3.536m0 5.656l3.536 3.536M9.172 9.172L5.636 5.636m3.536 9.192l-3.536 3.536M21 12a9 9 0 11-18 0 9 9 0 0118 0zm-5 0a4 4 0 11-8 0 4 4 0 018 0z"/>
+                </svg>
+            </div>
+            <h2 class="eco-card-title">Ayuda y atención</h2>
+        </div>
+        <div class="eco-card-content">
+            <p>Si tienes dudas sobre el pago o necesitas cambiar el método de pago:</p>
+
+            <ul>
+                <li><strong>Email:</strong> <a href="mailto:contacto@grupoecocorum.es" style="color: var(--eco-primary); font-weight: 600;">contacto@grupoecocorum.es</a></li>
+                <li><strong>WhatsApp:</strong> <a href="https://wa.me/34686781490" target="_blank" style="color: var(--eco-primary); font-weight: 600;">+34 686 78 14 90</a></li>
+                <li><strong>Teléfono:</strong> <a href="tel:+34663166160" style="color: var(--eco-primary); font-weight: 600;">+34 663 16 61 60</a></li>
+            </ul>
+
+            <div class="eco-note-box">
+                <p><strong>⏰ Horario de atención:</strong> Lunes a Viernes, 9:00–18:00 (CET)</p>
+            </div>
+        </div>
+    </article>
+</div>
+
+<!-- Contact CTA -->
+<div class="eco-contact-cta">
+    <h2>¿Necesitas ayuda con tu pago?</h2>
+    <p>Nuestro equipo está aquí para resolver cualquier duda sobre métodos de pago</p>
+    <div class="eco-contact-methods">
+        <a href="mailto:contacto@grupoecocorum.es" class="eco-contact-btn">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/>
+            </svg>
+            <span>Email</span>
+        </a>
+        <a href="https://wa.me/34686781490" target="_blank" rel="noopener" class="eco-contact-btn">
+            <svg viewBox="0 0 24 24" fill="currentColor">
+                <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/>
+            </svg>
+            <span>WhatsApp</span>
+        </a>
+        <a href="tel:+34663166160" class="eco-contact-btn">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"/>
+            </svg>
+            <span>+34 663 16 61 60</span>
+        </a>
+    </div>
+</div>
+
+<!-- Footer Links -->
+<div class="eco-footer-links">
+    <p>
+        Consulta también:
+        <a href="/politica-de-privacidad/">Política de privacidad</a> ·
+        <a href="/condiciones-generales-de-venta/">Condiciones generales de venta</a> ·
+        <a href="/entrega/">Información de entrega</a>
+    </p>
+</div>
+</div>
